@@ -1,0 +1,50 @@
+<div class="register">
+  <form class="custom-form" method="post">
+    <h1>Register</h1>
+    <input
+      type="email"
+      [(ngModel)]="empresa.email"
+      name="email"
+      placeholder="Email"
+      required="required"
+    />
+    <input
+      type="password"
+      [(ngModel)]="empresa.password"
+      name="password"
+      placeholder="Contraseña"
+      required="required"
+    />
+    <input
+      type="text"
+      [(ngModel)]="empresa.name"
+      name="name"
+      placeholder="Nombre"
+      required="required"
+    />
+    <label for="provincias">Selecciona una provincia: </label>
+
+    <select name="provincias" id="provincias">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+    <input
+      type="text"
+      [(ngModel)]="empresa.town"
+      name="town"
+      placeholder="Localidad"
+      required="required"
+    />
+    <input
+      type="text"
+      [(ngModel)]="empresa.address"
+      name="address"
+      placeholder="Dirección"
+      required="required"
+    />
+
+    <button type="submit" (click)="register()">Register</button>
+  </form>
+</div>
