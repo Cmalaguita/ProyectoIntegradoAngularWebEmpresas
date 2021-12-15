@@ -43,8 +43,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
-
+import { ProfileComponent } from './profile/profile.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexModule } from '@angular/flex-layout';
+import { NavigationDrawerComponent } from './navigationDrawer/navigationDrawer.component';
 const materialModules = [
   CdkTreeModule,
   MatAutocompleteModule,
@@ -78,15 +80,17 @@ const materialModules = [
   MatRadioModule,
   MatDatepickerModule,
   MatTooltipModule,
-  
+  FlexLayoutModule,
+  FlexModule
 ];
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
       LoginComponent,
       RegisterComponent,
-      HomeComponent
-
+      HomeComponent,
+      ProfileComponent,
+      NavigationDrawerComponent
    ],
   imports: [
     BrowserModule,
@@ -94,7 +98,8 @@ const materialModules = [
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    materialModules
+    materialModules,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

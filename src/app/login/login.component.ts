@@ -22,10 +22,11 @@ export class LoginComponent implements OnInit {
 
   login()  {
     const empresa = {email: this.empresa.email, password: this.empresa.password};
-   
-    this.empresaService.login(empresa).subscribe( (data: boolean) => {
+
+    this.empresaService.login(empresa).subscribe( (data) => {
+    sessionStorage.setItem('id',data)
       console.log(data);
-      this.route.navigate(['/home'])
+      this.route.navigate(['/navigation'])
     },error=>{
 this.error=true;
 

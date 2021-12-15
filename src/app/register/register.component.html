@@ -26,21 +26,20 @@
 
     <mat-form-field class="example-full-width">
       <mat-label>Provincia</mat-label>
-      <mat-select 
+      <mat-select
       (selectionChange)="changeselected($event.value)"
       >
-        <mat-option 
+        <mat-option
           *ngFor="let p of listaProv"
           [value]="p"
         >
           {{ p.nombre }}
         </mat-option>
       </mat-select>
+
     </mat-form-field>
 
-    <!-- <select type="number"  style="width: 50%;" name="provinciaid" id="provincias" >
-      <option *ngFor="let p of listaProv" [value]="p">{{ p.nombre }}</option>
-    </select> -->
+
     <input
       type="text"
       [(ngModel)]="empresa.localidad"
@@ -59,6 +58,6 @@
     <button type="submit" (click)="register()">Register</button>
     <br>
     <span *ngIf="error"><mat-error>hola</mat-error></span>
-    
+
   </form>
 </div>

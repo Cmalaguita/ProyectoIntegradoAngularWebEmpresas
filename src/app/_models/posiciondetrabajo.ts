@@ -1,13 +1,13 @@
-import * as internal from "stream";
+import * as internal from 'stream';
 
 export interface PosicionDeTrabajo {
   id: number;
-  name: string;
- datestart: Date;
- dateofend: Date;
- empresaid: number;
- ciclos: number[];
- description:string;
-schedule: string;
-salary : number;
+  nombre: string;
+  fechainicio: Date;
+  fechafin: Date;
+  empresaid: number;
+  ciclos: number[];
+  descripcion: string;
+  horario: string;
+  remuneracion: number;
 }
