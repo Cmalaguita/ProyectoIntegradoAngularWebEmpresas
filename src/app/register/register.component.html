@@ -1,4 +1,3 @@
-
 <div class="register">
   <form class="custom-form" method="post">
     <h1>Register</h1>
@@ -26,10 +25,7 @@
     <label for="provincias">Selecciona una provincia: </label>
 
     <select name="provincias" id="provincias">
-      <option value="volvo">Volvo</option>
-      <option value="saab">Saab</option>
-      <option value="mercedes">Mercedes</option>
-      <option value="audi">Audi</option>
+      <option *ngFor="let p of listaProv" [value]="p">{{ p }}</option>
     </select>
     <input
       type="text"

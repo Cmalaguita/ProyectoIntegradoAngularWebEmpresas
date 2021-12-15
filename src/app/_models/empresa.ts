@@ -1,10 +1,11 @@
 ﻿export interface Empresa {
-    id: number;
+    id?: number;
     email: string;
     password: string;
-    name: string;
-    provinceid:number;
-    town: string;
-    address:string;
-    token: string;
+    name?: string;
+    provinceid?:number;
+    town?: string;
+    address?:string;
+    token?:string;
+
 }
