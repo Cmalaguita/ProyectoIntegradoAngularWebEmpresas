@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { apiURL } from 'src/environments/environment';
 
 import { Observable } from 'rxjs';
+import { registerLocaleData } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class EmpresaService {
   }
 
   register(empresa: Empresa): Observable<any> {
+    
       return this.http.post(apiURL+`/Empresa/Sign_up_Empresa`, empresa);
   }
 

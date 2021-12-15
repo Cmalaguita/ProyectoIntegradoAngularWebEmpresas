@@ -2,10 +2,10 @@
     id?: number;
     email: string;
     password: string;
-    name?: string;
-    provinceid?:number;
-    town?: string;
-    address?:string;
+    nombre?: string;
+    provinciaid?:number;
+    localidad?: string;
+    direccion?:string;
     token?:string;
 
 }

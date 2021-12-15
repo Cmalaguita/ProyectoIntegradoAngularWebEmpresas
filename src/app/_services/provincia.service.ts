@@ -12,7 +12,7 @@ export class ProvinciaService {
 constructor(private http: HttpClient) { }
 
 getAll():Observable<Provincia[]>{
-  return this.http.get<Provincia[]>( apiURL+"/api/Provincia/Obtener_Todas_Las_Provincias");
+  return this.http.get<Provincia[]>( apiURL+"/Provincia/Obtener_Todas_Las_Provincias");
 }
 
 }

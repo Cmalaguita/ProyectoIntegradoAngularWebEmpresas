@@ -17,31 +17,48 @@
     />
     <input
       type="text"
-      [(ngModel)]="empresa.name"
-      name="name"
+      [(ngModel)]="empresa.nombre"
+      name="nombre"
       placeholder="Nombre"
       required="required"
     />
     <label for="provincias">Selecciona una provincia: </label>
 
-    <select name="provincias" id="provincias">
-      <option *ngFor="let p of listaProv" [value]="p">{{ p }}</option>
-    </select>
+    <mat-form-field class="example-full-width">
+      <mat-label>Provincia</mat-label>
+      <mat-select 
+      (selectionChange)="changeselected($event.value)"
+      >
+        <mat-option 
+          *ngFor="let p of listaProv"
+          [value]="p"
+        >
+          {{ p.nombre }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <select type="number"  style="width: 50%;" name="provinciaid" id="provincias" >
+      <option *ngFor="let p of listaProv" [value]="p">{{ p.nombre }}</option>
+    </select> -->
     <input
       type="text"
-      [(ngModel)]="empresa.town"
-      name="town"
+      [(ngModel)]="empresa.localidad"
+      name="localidad"
       placeholder="Localidad"
       required="required"
     />
     <input
       type="text"
-      [(ngModel)]="empresa.address"
-      name="address"
+      [(ngModel)]="empresa.direccion"
+      name="direccion"
       placeholder="Dirección"
       required="required"
     />
 
     <button type="submit" (click)="register()">Register</button>
+    <br>
+    <span *ngIf="error"><mat-error>hola</mat-error></span>
+    
   </form>
 </div>

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { EmpresaService } from '../_services/empresa.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,15 +11,25 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   empresa! :Empresa;
+  error:boolean=false;
 
-  constructor(public empresaService: EmpresaService,public router: Router) {}
+  constructor(private empresaService:EmpresaService,private route:Router) {
+    this.empresa={
+      email:"",
+      password:""
+    };
+  }
 
-  login() {
-    // const empresa = {email: this.empresa.email, password: this.empresa.password};
-    // this.empresaService.login(empresa).subscribe( data => {
-    //   console.log(data);
-    //   this.router.navigateByUrl('/')
-    // });
+  login()  {
+    const empresa = {email: this.empresa.email, password: this.empresa.password};
+   
+    this.empresaService.login(empresa).subscribe( (data: boolean) => {
+      console.log(data);
+      this.route.navigate(['/home'])
+    },error=>{
+this.error=true;
+
+    });
   }
 
   ngOnInit() {
