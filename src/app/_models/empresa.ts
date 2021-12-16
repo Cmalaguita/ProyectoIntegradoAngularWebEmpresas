@@ -1,4 +1,5 @@
-﻿export interface Empresa {
+﻿import { Provincia } from './provincia';
+export interface Empresa {
     id?: number;
     email: string;
     password: string;
@@ -7,5 +8,6 @@
     localidad?: string;
     direccion?:string;
     token?:string;
+    provincia?:Provincia
 
 }

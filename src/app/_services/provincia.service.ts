@@ -14,5 +14,8 @@ constructor(private http: HttpClient) { }
 getAll():Observable<Provincia[]>{
   return this.http.get<Provincia[]>( apiURL+"/Provincia/Obtener_Todas_Las_Provincias");
 }
+getProvincia(id:string | undefined):Observable<Provincia>{
+  return this.http.get<Provincia>( apiURL+`/Provincia/Buscar_Provincia_Id?id=`+id);
+}
 
 }

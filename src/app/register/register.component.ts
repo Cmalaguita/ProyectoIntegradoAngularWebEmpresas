@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   empresa!: Empresa;
   error:boolean=false;
   provinciaid:number=0;
- 
+
   listaProv:Provincia[]=[];
   constructor(public provinciaService: ProvinciaService,public empresaService: EmpresaService,public route: Router) {
 
@@ -28,7 +28,6 @@ export class RegisterComponent implements OnInit {
   changeselected(prov:Provincia){
     console.log("CONSOLE LOG DE PROV ID EN CHANGESELECTED: "+prov.id)
 this.provinciaid=prov.id
-
   }
   register() {
     let empresa = {
@@ -55,7 +54,7 @@ console.log(empresa);
 
       this.listaProv=data;
       console.log(data);
-      
+
     },
     error=>{
 this.error=true;

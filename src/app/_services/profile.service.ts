@@ -9,17 +9,14 @@ import { apiURL } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ProfileService {
-  id:string|any= sessionStorage.getItem('id');
+
   constructor(private http: HttpClient) { }
 
 
   getEmpresa(id:string): Observable<Empresa> {
 
-    return this.http.get<Empresa>( apiURL+`/Empresa/Buscar_Empresa_Id/${id}`);
+    return this.http.get<Empresa>( apiURL+`/Empresa/Buscar_Empresa_Id?id=`+id);
 
   }
-
-
-
 
 }

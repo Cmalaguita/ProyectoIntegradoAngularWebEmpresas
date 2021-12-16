@@ -1,3 +1,4 @@
+import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -6,13 +7,17 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NavigationDrawerComponent } from './navigationDrawer/navigationDrawer.component';
 const routes: Routes = [
-  { path: '', pathMatch: 'full',redirectTo:'login' },
-  { path: 'home', component: HomeComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: '',   redirectTo: 'login', pathMatch: 'full' },
+  { path: '', component: AppComponent},
   { path: 'register', component: RegisterComponent },
-  { path: 'navigation', component: NavigationDrawerComponent }
+  { path: 'navigation', component: NavigationDrawerComponent,children:[
+    { path: 'home', component: HomeComponent},
+    { path: '', component: HomeComponent},
+    { path: 'profile', component: ProfileComponent },
+  ] },
 
+  { path: '**',redirectTo:'' }
 ];
 
 @NgModule({

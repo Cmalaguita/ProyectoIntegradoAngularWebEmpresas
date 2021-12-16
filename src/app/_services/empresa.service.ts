@@ -21,7 +21,7 @@ export class EmpresaService {
   }
 
   register(empresa: Empresa): Observable<any> {
-    
+
       return this.http.post(apiURL+`/Empresa/Sign_up_Empresa`, empresa);
   }
 

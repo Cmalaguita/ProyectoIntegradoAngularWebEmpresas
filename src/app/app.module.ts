@@ -84,7 +84,7 @@ const materialModules = [
   FlexModule
 ];
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
       LoginComponent,
       RegisterComponent,
@@ -99,7 +99,7 @@ const materialModules = [
     HttpClientModule,
     BrowserAnimationsModule,
     materialModules,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

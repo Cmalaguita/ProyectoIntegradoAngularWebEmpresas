@@ -6,5 +6,5 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ProyectoIntegradoAngularWebEmpresas';
+  title = 'Doors n Corners';
 }

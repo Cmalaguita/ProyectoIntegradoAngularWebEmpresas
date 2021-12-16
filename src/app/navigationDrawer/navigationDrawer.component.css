@@ -1,0 +1,21 @@
+.barratop {
+background-color: rgb(27, 27, 27);
+color: aliceblue;
+
+}
+.a-custom{
+color: aliceblue;
+  }
+.a-custom:hover{
+letter-spacing: 2;
+
+}
+.mat-icon-custom{
+  padding-right: 10px;
+}
+.sidenav-custom{
+  background-color:rgb(27, 27, 27) ;
+
+  color: aliceblue;
+}
+
