@@ -47,6 +47,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FlexModule } from '@angular/flex-layout';
 import { NavigationDrawerComponent } from './navigationDrawer/navigationDrawer.component';
+import { OffersComponent } from './offers/offers.component';
 const materialModules = [
   CdkTreeModule,
   MatAutocompleteModule,
@@ -84,13 +85,14 @@ const materialModules = [
   FlexModule
 ];
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
       LoginComponent,
       RegisterComponent,
       HomeComponent,
       ProfileComponent,
-      NavigationDrawerComponent
+      NavigationDrawerComponent,
+      OffersComponent
    ],
   imports: [
     BrowserModule,

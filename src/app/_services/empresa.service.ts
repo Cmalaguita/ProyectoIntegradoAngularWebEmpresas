@@ -28,5 +28,4 @@ export class EmpresaService {
   delete(id: number) {
       return this.http.delete(apiURL+`/Empresa/Eliminar_Empresa/${id}`);
   }
-
 }

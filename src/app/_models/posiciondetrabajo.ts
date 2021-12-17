@@ -1,4 +1,4 @@
-import * as internal from 'stream';
+
 
 export interface PosicionDeTrabajo {
   id: number;

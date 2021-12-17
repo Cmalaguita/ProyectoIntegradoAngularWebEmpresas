@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NavigationDrawerComponent } from './navigationDrawer/navigationDrawer.component';
+import { OffersComponent } from './offers/offers.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '',   redirectTo: 'login', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent},
     { path: '', component: HomeComponent},
     { path: 'profile', component: ProfileComponent },
+    { path: 'offers', component: OffersComponent }
   ] },
 
   { path: '**',redirectTo:'' }

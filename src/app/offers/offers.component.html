@@ -1,0 +1,20 @@
+
+<div style="background-color: blue;margin: 0 auto;"> 
+  <mat-card  *ngFor="let pos of listapos" class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{pos.nombre}}</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+   
+    <mat-card-content>
+      <p style="word-break: break-all;">
+       {{pos.descripcion}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
