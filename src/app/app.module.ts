@@ -48,6 +48,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FlexModule } from '@angular/flex-layout';
 import { NavigationDrawerComponent } from './navigationDrawer/navigationDrawer.component';
 import { OffersComponent } from './offers/offers.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
+
 const materialModules = [
   CdkTreeModule,
   MatAutocompleteModule,
@@ -82,17 +85,21 @@ const materialModules = [
   MatDatepickerModule,
   MatTooltipModule,
   FlexLayoutModule,
-  FlexModule
+  FlexModule,
+  MatDialogModule
+
 ];
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
       LoginComponent,
       RegisterComponent,
       HomeComponent,
       ProfileComponent,
       NavigationDrawerComponent,
-      OffersComponent
+      OffersComponent,
+      DialogComponent,
+
    ],
   imports: [
     BrowserModule,
@@ -102,6 +109,8 @@ const materialModules = [
     BrowserAnimationsModule,
     materialModules,
     FlexLayoutModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

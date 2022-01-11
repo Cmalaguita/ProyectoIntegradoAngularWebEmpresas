@@ -1,7 +1,6 @@
 import { EmpresaService } from './../_services/empresa.service';
 import { Empresa } from './../_models/empresa';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ProvinciaService } from '../_services/provincia.service';
 import { Provincia } from '../_models/provincia';
@@ -17,7 +16,7 @@ export class RegisterComponent implements OnInit {
   provinciaid:number=0;
 
   listaProv:Provincia[]=[];
-  constructor(public provinciaService: ProvinciaService,public empresaService: EmpresaService,public route: Router) {
+  constructor(private provinciaService: ProvinciaService,private empresaService: EmpresaService,private route: Router) {
 
     this.empresa={
       email:"",

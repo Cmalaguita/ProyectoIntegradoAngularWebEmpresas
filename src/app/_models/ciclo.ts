@@ -1,6 +1,6 @@
 export interface Ciclo {
   id: number;
-  name: string;
+  nombre: string;
   idfamilia: number;
   idtipo: number;
 }

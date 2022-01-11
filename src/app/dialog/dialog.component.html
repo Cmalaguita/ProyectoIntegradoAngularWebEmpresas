@@ -1,0 +1,103 @@
+<h2
+  mat-dialog-title
+  style="
+    text-align: center;
+    background-color: rgb(231, 210, 16);
+    background-size: auto;
+  "
+>
+  Posición de trabajo
+</h2>
+<mat-dialog-content>
+  <div class="table-responsive">
+    <table id="tableModal" class="table">
+      <thead></thead>
+      <tbody>
+        <tr>
+          <td class="text-center">Nombre</td>
+          <td class="text-center">Fecha de inicio</td>
+          <td class="text-center">Fecha de fin</td>
+        </tr>
+        <tr>
+          <td class="text-center"><input [(ngModel)]="posicionDeTrabajo.nombre" id="inputNombre" name="nombre" type="text" /></td>
+          <td class="text-center">
+            <input [(ngModel)]="posicionDeTrabajo.fechainicio" id="inputFechaInicio" name="fechainicio" type="date" />
+          </td>
+          <td  class="text-center"><input [(ngModel)]="posicionDeTrabajo.fechafin" id="inputFechaFin" name="fechafin" type="date" /></td>
+        </tr>
+        <tr>
+          <td class="text-center">Familia profesional</td>
+          <td class="text-center">Tipo de ciclo</td>
+          <td class="text-center">Ciclo</td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>Familia profesional</mat-label>
+              <mat-select
+                (selectionChange)="changeselectedFamilia($event.value)"
+              >
+                <mat-option *ngFor="let f of listaFamilias" [value]="f">
+                  {{ f.nombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>Tipo de ciclo</mat-label>
+              <mat-select
+                (selectionChange)="changeselectedTipo($event.value)"
+              >
+                <mat-option *ngFor="let t of listaTipos" [value]="t">
+                  {{ t.nombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>Ciclo</mat-label>
+              <mat-select (click)="cargarCiclos()"
+                (selectionChange)="changeselectedCiclo($event.value)"
+              >
+                <mat-option *ngFor="let c of listaCiclos" [value]="c">
+                  {{ c.nombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+
+          <td style="width: 50%;" class="text-center">Horario</td>
+          <td style="width: 50%;" class="text-center">Remuneración</td>
+
+        </tr>
+        <tr>
+
+          <td style="width: 50%;" class="text-center"><input [(ngModel)]="posicionDeTrabajo.horario" id="inputHorario" name="horario" type="text" /></td>
+          <td style="width: 50%;" class="text-center"><input [(ngModel)]="posicionDeTrabajo.remuneracion" id="inputRemuneracion" name="remuneracion" type="number" /></td>
+
+        </tr>
+        <tr>
+          <td class="text-center" colspan="2">Descripción</td>
+          <td>Ciclos que comprende la posición</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <textarea [(ngModel)]="posicionDeTrabajo.descripcion" id="inputDescripcion" name="descripcion" style="width: 461.297px"></textarea>
+          </td>
+          <td>
+            <h5 *ngFor="let ciclo of listaCiclosEnPosicion">{{ciclo.nombre}}</h5>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button style="color: red;" mat-button mat-dialog-close>Cancelar</button>
+  <button (click)="crearPosicion()" style="color: green;" mat-button [mat-dialog-close]="true">Crear</button>
+</mat-dialog-actions>

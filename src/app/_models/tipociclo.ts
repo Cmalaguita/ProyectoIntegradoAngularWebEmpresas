@@ -1,4 +1,4 @@
 export interface Tipociclo {
   id: number;
-  name: string;
+  nombre: string;
 }
