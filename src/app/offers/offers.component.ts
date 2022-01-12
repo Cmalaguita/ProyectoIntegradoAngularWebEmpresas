@@ -4,6 +4,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { PosicionDeTrabajo } from '../_models/posiciondetrabajo';
 import { OfferService } from '../_services/offer.service';
+import { ApplyService } from '../_services/apply_service';
+import { Alumno } from '../_models/alumno';
 @Component({
   selector: 'app-offers',
   templateUrl: './offers.component.html',
@@ -14,15 +16,35 @@ export class OffersComponent implements OnInit {
   error:boolean=false;
   listapos:Array<PosicionDeTrabajo>=[];
   posicionDetallada!: PosicionDeTrabajo;
-  listapply:Array<Inscripcion>=[]
-  constructor(private offerService:OfferService,public dialog:MatDialog) {
+  listapply:Array<Alumno>=[]
+  constructor(private offerService:OfferService,public dialog:MatDialog,private applyService:ApplyService) {
 
 
   }
+  getApplies(idPosicion:string){
+    this.applyService.getAppliesByOffer(idPosicion).subscribe((data)=>{
+      this.listapply=data;
+
+      console.log(this.listapply)
+    },
+    
+    
+    error=>{
+      this.error=true;
+      alert("las posiciones no se han cargado correctamente.")
+    });
+    
+    }
 
 loadOffers(){
 this.offerService.getOffersByEmpresaId(this.empresaid).subscribe((data)=>{
   this.listapos=data;
+ this.listapos.forEach(pos => {
+  this.applyService.getAppliesByOffer(pos.id?.toString()).subscribe((data)=>{
+
+    pos.listaInscritos=data;
+  });
+ });
   console.log(this.listapos)
 },
 

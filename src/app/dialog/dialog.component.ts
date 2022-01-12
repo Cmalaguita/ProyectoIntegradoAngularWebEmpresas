@@ -26,8 +26,8 @@ export class DialogComponent implements OnInit {
 
 this.posicionDeTrabajo={
   nombre:"",
-  fechainicio:new Date(),
-  fechafin:new Date(),
+  fechaInicio:new Date(),
+  fechaFin:new Date(),
   empresaid:Number(sessionStorage.getItem("id")),
   ciclos:[],
   descripcion:"",
@@ -55,8 +55,8 @@ console.log("IDTIPOCICLO"+this.idTipo)
   crearPosicion(){
     let posicionDeTrabajo={
       nombre:this.posicionDeTrabajo.nombre,
-      fechainicio:this.posicionDeTrabajo.fechainicio,
-      fechafin:this.posicionDeTrabajo.fechafin,
+      fechaInicio:this.posicionDeTrabajo.fechaInicio,
+      fechaFin:this.posicionDeTrabajo.fechaFin,
       empresaid:Number(sessionStorage.getItem("id")),
       ciclos:this.listaCiclosEnPosicion,
       descripcion:this.posicionDeTrabajo.descripcion,
