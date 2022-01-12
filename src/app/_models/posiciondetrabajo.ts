@@ -1,3 +1,4 @@
+import { Inscripcion } from './inscripcion';
 import { Alumno } from "./alumno";
 import { Ciclo } from "./ciclo";
 
@@ -12,5 +13,5 @@ export interface PosicionDeTrabajo {
   descripcion: string;
   horario?: string;
   remuneracion: number;
-  listaInscritos?:Alumno[];
+  listaInscritos?:Inscripcion[];
 }

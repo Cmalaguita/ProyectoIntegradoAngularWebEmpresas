@@ -16,8 +16,11 @@ updateApply(inscripcion:Inscripcion) {
   return this.http.put(apiURL+`/Inscripcion/Actualizar_Inscripcion`,inscripcion);
 }
 
-getAppliesByOffer(idPosicion: string | undefined) {
+getStudentApplyByOffer(idPosicion: string | undefined) {
   return this.http.get<Alumno[]>(apiURL+`/Inscripcion/Obtener_Alumnos_Inscritos_Por_Posicion?idPosicion=`+idPosicion);
+}
+getAppliesByOffer(idPosicion: string | undefined) {
+  return this.http.get<Inscripcion[]>(apiURL+`/Inscripcion/Obtener_Inscripciones_Por_Posicion?idPosicion=`+idPosicion);
 }
 
 }

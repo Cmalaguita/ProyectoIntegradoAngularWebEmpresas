@@ -5,6 +5,7 @@ import { Familia } from './../_models/familia';
 import { Tipociclo } from './../_models/tipociclo';
 import { CicloService } from './../_services/ciclo.service';
 import { Component, OnInit } from '@angular/core';
+import { MatChipsModule } from '@angular/material/chips';
 
 @Component({
   selector: 'app-dialog',

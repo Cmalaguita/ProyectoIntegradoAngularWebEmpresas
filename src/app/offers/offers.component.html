@@ -1,118 +1,133 @@
-
-<button mat-button class="btn btn-primary" role="button" data-toggle="modal" data-bss-tooltip="" style="background: rgb(231,210,16);margin: 40px;" id="CreatePos" (click)="openModal()" title="Crear Posicion" data-target="#crearPosicionModal">Crear Posición</button>
+<button
+  mat-button
+  class="btn btn-primary"
+  role="button"
+  data-toggle="modal"
+  data-bss-tooltip=""
+  style="background: rgb(231, 210, 16); margin: 40px"
+  id="CreatePos"
+  (click)="openModal()"
+  title="Crear Posicion"
+  data-target="#crearPosicionModal"
+>
+  Crear Posición
+</button>
 
 <div class="row">
   <div class="col-12">
-      <mat-grid-list cols="2" rowHeight="850px">
-          <mat-grid-tile colspan="1" rowspan="1" *ngFor="let pos of listapos">
-              <mat-card class="card m-3" style="background-color: black;min-height: 500px;width: 500px;">
-                  <mat-card-title>{{pos.nombre}} </mat-card-title>
-                  <mat-card-content>
-                    <div>
-                      <table>
-                        <tr>
-                          <th style="color: aliceblue;">Descripcion</th>
-                      </tr>
-                      <tr>
-                          <td style="color: aliceblue;word-break: break-all;">
-                              {{pos.descripcion}}
-                          </td>
-                      </tr>
-                      </table>
-                      <hr style="background-color: aliceblue;">
-                    </div>
-                      <table style="width:100%;">
-                         
-                          <tr>
-                              <th style="color: aliceblue;"> Fecha de inicio:</th>
-                              <th style="color: aliceblue;"> Fecha de fin:</th>
-                            </tr>
-                            <tr>
-                            <td style="color: aliceblue;"  type="date">{{pos.fechaInicio}}</td>
-                            <td style="color: aliceblue;"  type="date">{{pos.fechaFin}}</td>
-                          </tr>
-                          <tr>
-                            <th style="color: aliceblue;"> Horario:</th>
-                            <th style="color: aliceblue;"> Remuneracion:</th>
-                          </tr>
-                          <tr>
-                          <td style="color: aliceblue;">{{pos.horario}}</td>
-                          <td style="color: aliceblue;">{{pos.remuneracion}}€</td>
-                        </tr>
-                        <tr>
-                          <td style="color: aliceblue;font-weight: bold;">Alumnos Inscritos</td>
-                        </tr>
-                        <tr>
-                          <td>
-                          </td>                         
-                        </tr>
-                      </table>
-                      <div class="scrollmenu">
-                        <mat-card style="min-width: 400px;" class="card m-2" *ngFor="let a of pos.listaInscritos">
-                          <mat-card-title>
-                            {{a.nombre}}                            
-                          </mat-card-title>
-                          <mat-card-subtitle>
-                            {{a.apellidos}}
-                          </mat-card-subtitle>
-                          <mat-card-content>
-                            <table>
-                              <tr>
-                                <td style="font-weight: bold;">Provincia: </td>
-                                <td>{{a.provincia!.nombre}}</td>
-                              </tr>
-                              <tr>
-                                <td style="font-weight: bold;">Ciclo:</td>
-                                <td>{{a.ciclo!.nombre}}</td>
-                              </tr>
-                              <tr>
-                                <td style="font-weight: bold;">Nacimiento:  </td>
-                                <td>{{a.fechaDeNacimiento}}</td>
-                              </tr> <tr>
-                                <td style="font-weight: bold;">Nota media:  </td>
-                                <td>{{a.notaMedia}}</td>
-                              </tr>
-                              <tr>
-                                <td style="font-weight: bold;">
-                                  Estado de la inscripción: 
-                                </td>
-                                <td>
-                                  <mat-form-field class="example-full-width">
-                                    <mat-label>Pendiente</mat-label>
-                                    <mat-select
-                                    >
-                                    <!-- (selectionChange)="changeselected($event.value)" -->
-                                      <mat-option>
-                                       d
-                                      </mat-option>
-                                    </mat-select>
-                              
-                                  </mat-form-field>
-                                </td>
-                              </tr>
-                            </table>
-                          </mat-card-content>
-                        
-                        </mat-card>
-                      </div>
-                  </mat-card-content>
-                  
+    <mat-grid-list cols="3" rowHeight="700px">
+      <mat-grid-tile colspan="1" rowspan="1" *ngFor="let pos of listapos">
+        <mat-card
+          class="card m-3"
+          style="background-color: black; min-height: 550px; width: 500px"
+        >
+          <mat-card-title style="color: rgb(231, 210, 16);">{{ pos.nombre }} </mat-card-title>
+          <mat-card-content>
+            <div>
+              <table>
+                <tr>
+                  <th style="color: aliceblue">Descripcion</th>
+                </tr>
+                <tr>
+                  <td style="color: aliceblue; word-break: break-all">
+                    {{ pos.descripcion }}
+                  </td>
+                </tr>
+              </table>
+              <hr style="background-color: rgb(231, 210, 16)" />
+            </div>
+            <table style="width: 100%">
+              <tr>
+                <th style="color: aliceblue">Fecha de inicio:</th>
+                <th style="color: aliceblue">Fecha de fin:</th>
+              </tr>
+              <tr>
+                <td style="color: aliceblue" type="date">
+                  {{ pos.fechaInicio }}
+                </td>
+                <td style="color: aliceblue" type="date">{{ pos.fechaFin }}</td>
+              </tr>
+              <tr>
+                <th style="color: aliceblue">Horario:</th>
+                <th style="color: aliceblue">Remuneracion:</th>
+              </tr>
+              <tr>
+                <td style="color: aliceblue">{{ pos.horario }}</td>
+                <td style="color: aliceblue">{{ pos.remuneracion }}€</td>
+              </tr>
+              <tr>
+                <td style="color: aliceblue; font-weight: bold">
+                  Alumnos Inscritos
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+            </table>
+            <div class="scrollmenu">
+              <mat-card
+                style="min-width: 400px"
+                class="card m-2"
+                *ngFor="let a of pos.listaInscritos"
+              >
+                <mat-card-title>
+                  {{ a.alumno!.nombre }}
+                </mat-card-title>
+                <mat-card-subtitle>
+                  {{ a.alumno!.apellidos }}
+                </mat-card-subtitle>
+                <mat-card-content>
+                  <table>
+                    <tr>
+                      <td style="font-weight: bold">Provincia:</td>
+                      <td>{{ a.alumno!.provincia!.nombre }}</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: bold">Ciclo:</td>
+                      <td>{{ a.alumno!.ciclo!.nombre }}</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: bold">Nacimiento:</td>
+                      <td>{{ a.alumno!.fechaDeNacimiento }}</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: bold">Nota media:</td>
+                      <td>{{ a.alumno!.notaMedia }}</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: bold">
+                        Estado de la inscripción:
+                      </td>
+                      <td>
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Pendiente</mat-label>
+                          <mat-select
+                            [value]="a.estadoInscripcion"
+                            (selectionChange)="changeselected($event.value, a)"
+                          >
+                            <mat-option value="Seleccionado">
+                              Seleccionado
+                            </mat-option>
+                            <mat-option value="No seleccionado">
+                              No Seleccionado
+                            </mat-option>
+                            <mat-option value="Pendiente">
+                              Pendiente
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </td>
+                    </tr>
+                  </table>
+                </mat-card-content>
               </mat-card>
-          </mat-grid-tile>
-      </mat-grid-list>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- <mat-grid-list>
 <mat-grid-tile>
@@ -134,5 +149,3 @@
   </mat-card>
 </mat-grid-tile>
 </mat-grid-list> -->
-
-
