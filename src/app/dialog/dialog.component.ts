@@ -48,9 +48,12 @@ console.log("IDTIPOCICLO"+this.idTipo)
     console.log("IDFAMILIA "+this.idFamilia)
       }
       changeselectedCiclo(Ciclo:Ciclo){
-        this.CicloEnPosicion=Ciclo;
 
-        this.listaCiclosEnPosicion.push(this.CicloEnPosicion);
+        if (!this.listaCiclosEnPosicion.some(x=>x.id==Ciclo.id)) {
+
+          this.listaCiclosEnPosicion.push(Ciclo);
+        }
+
         console.log(this.listaCiclosEnPosicion);
           }
   crearPosicion(){

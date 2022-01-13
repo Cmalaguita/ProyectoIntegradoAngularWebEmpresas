@@ -43,9 +43,9 @@
               </tr>
               <tr>
                 <td style="color: aliceblue" type="date">
-                  {{ pos.fechaInicio }}
+                  {{dateFormat(pos.fechaInicio.toString()) }}
                 </td>
-                <td style="color: aliceblue" type="date">{{ pos.fechaFin }}</td>
+                <td style="color: aliceblue" type="date">{{dateFormat( pos.fechaFin.toString()) }}</td>
               </tr>
               <tr>
                 <th style="color: aliceblue">Horario:</th>
@@ -58,7 +58,6 @@
               <tr>
               </tr>
               <tr>
-
               </tr>
               <tr>
                 <td></td>
@@ -99,7 +98,7 @@
                     </tr>
                     <tr>
                       <td style="font-weight: bold">Nacimiento:</td>
-                      <td>{{ a.alumno!.fechaDeNacimiento }}</td>
+                      <td>{{dateFormat(a.alumno!.fechaDeNacimiento.toString()) }}</td>
                     </tr>
                     <tr>
                       <td style="font-weight: bold">Nota media:</td>

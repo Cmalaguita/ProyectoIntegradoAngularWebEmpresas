@@ -23,6 +23,9 @@ export class OffersComponent implements OnInit {
     public dialog: MatDialog,
     private applyService: ApplyService
   ) {}
+  dateFormat(date:string){
+return date.split("T")[0];
+  }
   changeselected(estado: string, inscripcion:Inscripcion) {
 
 
