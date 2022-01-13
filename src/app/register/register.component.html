@@ -1,24 +1,24 @@
 <div class="register">
-  <form class="custom-form" method="post">
+  <form  [formGroup]="registerForm" class="custom-form">
     <h1>Register</h1>
     <input
       type="email"
       [(ngModel)]="empresa.email"
-      name="email"
+      formControlName="email"
       placeholder="Email"
       required="required"
     />
     <input
       type="password"
       [(ngModel)]="empresa.password"
-      name="password"
+      formControlName="password"
       placeholder="Contraseña"
       required="required"
     />
     <input
       type="text"
       [(ngModel)]="empresa.nombre"
-      name="nombre"
+      formControlName="nombre"
       placeholder="Nombre"
       required="required"
     />
@@ -55,9 +55,9 @@
       required="required"
     />
 
-    <button type="submit" (click)="register()">Register</button>
+    <button [disabled]="registerForm.invalid" type="submit" (click)="register()">Register</button>
     <br>
-    <span *ngIf="error"><mat-error>hola</mat-error></span>
-
+    <span *ngIf="error"><mat-error>error en el registro</mat-error></span>
+    <a routerLink="/login" class="btn btn-link">Atras</a>
   </form>
 </div>

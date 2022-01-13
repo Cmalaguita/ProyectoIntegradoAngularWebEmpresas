@@ -10,11 +10,10 @@ import { OffersComponent } from './offers/offers.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '',   redirectTo: 'login', pathMatch: 'full' },
-  { path: '', component: AppComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'navigation', component: NavigationDrawerComponent,children:[
     { path: 'home', component: HomeComponent},
-    { path: '', component: HomeComponent},
+    { path: '', component: OffersComponent},
     { path: 'profile', component: ProfileComponent },
     { path: 'offers', component: OffersComponent }
   ] },

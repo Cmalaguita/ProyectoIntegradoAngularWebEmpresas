@@ -110,7 +110,8 @@ const materialModules = [
     materialModules,
     FlexLayoutModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

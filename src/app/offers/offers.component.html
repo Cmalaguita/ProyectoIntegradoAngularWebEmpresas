@@ -56,27 +56,38 @@
                 <td style="color: aliceblue">{{ pos.remuneracion }}€</td>
               </tr>
               <tr>
-                <td style="color: aliceblue; font-weight: bold">
-                  Alumnos Inscritos
-                </td>
+              </tr>
+              <tr>
+
               </tr>
               <tr>
                 <td></td>
               </tr>
             </table>
+            <h4 style="color: aliceblue;font-weight: bold;">Ciclos:</h4>
+            <div class="scrollmenu">
+              <mat-chip *ngFor="let c of pos.ciclos" style="background-color: rgb(231, 210, 16); color: black; font-weight: bold;margin: 5px;border-radius: 15px;padding-inline: 5px;">
+
+                {{c.nombre}}
+              </mat-chip>
+
+            </div>
+            <h4 style="color: aliceblue; font-weight: bold">
+              Alumnos Inscritos
+            </h4>
             <div class="scrollmenu">
               <mat-card
-                style="min-width: 400px"
-                class="card m-2"
-                *ngFor="let a of pos.listaInscritos"
+              style="min-width: 400px"
+              class="card m-2"
+              *ngFor="let a of pos.listaInscritos"
               >
-                <mat-card-title>
-                  {{ a.alumno!.nombre }}
-                </mat-card-title>
-                <mat-card-subtitle>
-                  {{ a.alumno!.apellidos }}
-                </mat-card-subtitle>
-                <mat-card-content>
+              <mat-card-title>
+                {{ a.alumno!.nombre }}
+              </mat-card-title>
+              <mat-card-subtitle>
+                {{ a.alumno!.apellidos }}
+              </mat-card-subtitle>
+              <mat-card-content>
                   <table>
                     <tr>
                       <td style="font-weight: bold">Provincia:</td>
@@ -128,24 +139,3 @@
     </mat-grid-list>
   </div>
 </div>
-
-<!-- <mat-grid-list>
-<mat-grid-tile>
-
-  <mat-card *ngFor="let pos of listapos" class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{pos.nombre}}</mat-card-title>
-      <mat-card-subtitle></mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p style="word-break: break-all;"> Descripción:
-       {{pos.descripcion}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button class="btn btn-primary" role="button" data-bss-tooltip="" style="background: rgb(231,210,16);" (click)="openModal()" title="Detalles de Posición">Detalles</button>
-    </mat-card-actions>
-  </mat-card>
-</mat-grid-tile>
-</mat-grid-list> -->

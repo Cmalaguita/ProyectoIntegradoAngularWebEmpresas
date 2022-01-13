@@ -42,7 +42,7 @@ console.log(data);
               pos.listaInscritos = data;
             });
         });
-        console.log(this.listapos);
+
       },
 
       (error) => {
@@ -62,7 +62,7 @@ console.log(data);
     };
 
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: '70%',
+      width: '100%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
