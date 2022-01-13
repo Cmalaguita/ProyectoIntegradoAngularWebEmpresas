@@ -1,27 +1,23 @@
 # ProyectoIntegradoAngularWebEmpresas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
 
-## Development server
+## Sinopsis
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* Este proyecto se es parte de un proyecto mayor, compuesto por una api proveedora de servicios, una aplicación flutter para dispositivos móviles y una aplicación web en Angular. Se trata de una aplicación que conecta a las empresas con estudiantes de ciclos formativos de todos los niveles para realizar las prácticas y/o la FP dual en estas.
+* Estado del proyecto: En proceso
 
-## Code scaffolding
+## Instalación
+* CMD: para instalar `npm install` para iniciar `npm start` o `ng serve -o` 
+## Uso
+* Servicio para que las empresas puedan encontrar alumnos para cubrir puestos en practicas y/o dual de Formación Profesional. Esta plataforma permite el registro de la empresa, el acceso de esta y la creación de posiciones de trabajo. Los alumnos pueden inscribirse a las posiciones a través de la plataforma para smartphone y la empresa decide si selecciona, deja pendiente o no selecciona al alumno para la posición de trabajo. 
+## Requerido
+* Node-JS
+* Angular-cli
+* Typescript
+## Recursos
+  * Angular-cli: https://angular.io/cli
+  * Node-JS: https://nodejs.org/en/
+  * Typescript: https://www.npmjs.com/package/typescript
+## Contacto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Para más info mail a: mangahverdeh@gmail.com
