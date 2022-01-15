@@ -1,26 +1,26 @@
 * {
-    box-sizing: border-box;
-  }
-  html,
-  body {
-    background: #ecf0f3;
-  }
-  h1 {
-    margin: 0;
-    padding: 0;
-  }
-  .custom-form {
-    min-width: 300px;
-    max-width: 60%;
-    margin: 0px auto;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 2rem 3rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+
+ .custom-form {
+
+    max-width: 20%;
     margin: auto;
+    background: rgba(255, 255, 255, 0.534);
+    padding: 2rem 3rem;
+    width: 20%;
+    min-width: 20%;
     border-radius: 2.5rem;
-    background-color: #ecf0f3;
-    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+    background-color:  rgb(27, 27, 27);
     color: black;
-    margin-top: 10rem;
+    margin-top: 10%;
   }
   .custom-form input {
     display: block;
@@ -41,12 +41,16 @@
     font-size: 0.875rem;
     color: #ffffff;
     font-weight: bold;
-    background-color: #bcd8c1;
+    background-color: rgb(231,210,16);
     width: 100%;
     display: block;
     padding: 0.875rem 1rem;
     border-radius: 1.5rem;
-    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+    box-shadow: 3px 3px 4px rgb(155, 141, 15), -2px -2px 5px rgb(87, 79, 5);
     cursor: pointer;
   }
-  
+  /* .mainBG{
+    background-repeat: no-repeat;
+    background-image: url(https://www.pixel4k.com/wp-content/uploads/2020/12/triangle-solid-black-gold-4k_1608574481.jpg);
+    background-size: cover;
+  } */

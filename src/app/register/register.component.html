@@ -1,6 +1,6 @@
 <div class="register">
   <form  [formGroup]="registerForm" class="custom-form">
-    <h1>Register</h1>
+    <h1 style="color: aliceblue;text-align: center;">Register</h1>
     <input
       type="email"
       [(ngModel)]="empresa.email"
@@ -22,10 +22,9 @@
       placeholder="Nombre"
       required="required"
     />
-    <label for="provincias">Selecciona una provincia: </label>
-
+    <label style="color: aliceblue;" for="provincias">Selecciona una provincia: </label>
     <mat-form-field class="example-full-width">
-      <mat-label>Provincia</mat-label>
+      <mat-label style="color: aliceblue;">Provincia</mat-label>
       <mat-select
       (selectionChange)="changeselected($event.value)"
       >

@@ -1,83 +1,84 @@
 <!------ Include the above in your HEAD tag ---------->
 <div>
-
-    <div class="container emp-profile">
-        <form method="post">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="profile-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                        <div class="file btn btn-lg btn-primary">
-                            Change Photo
-                            <input type="file" name="file"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="profile-head">
-                        <h2>
-                            {{empresa.nombre}}
-                        </h2>
-                        <h6>
-                            {{empresa.email}}
-                        </h6>
-                        <p class="proile-provincia">PROVINCIA :
-                            <span>{{empresa.provincia?.nombre}}</span>
-                        </p>
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a style="padding-left: 0;" class="nav-link">Sobre mi</a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                </div>
+  <div class="container emp-profile">
+    <form method="post">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-img">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+              alt=""
+            />
+            <div class="file btn btn-lg btn-primary">
+              Change Photo
+              <input type="file" name="file" />
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="profile-work">
-                        <p>WORK LINK</p>
-                        <a href="">Website Link</a><br/>
-                        <a href="">Bootsnipp Profile</a><br/>
-                        <a href="">Bootply Profile</a>
-                    </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="profile-head">
+            <h1>
+              {{ empresa.nombre }}
+            </h1>
+            <h5>
+              {{ empresa.email }}
+            </h5>
+            <p class="proile-provincia">
+              Provincia :
+              <span>{{ empresa.provincia?.nombre }}</span>
+            </p>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a style="padding-left: 0; color: aliceblue" class="nav-link"
+                  >Sobre mi</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <input style="background-color: rgb(231,210,16);color: aliceblue;"
+            type="submit"
+            class="profile-edit-btn"
+            name="btnAddMore"
+            value="Editar Perfil"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-8">
+          <div id="profile">
+            <div>
+              <div class="row">
+                <div class="col-md-5">
+                  <label style="color: aliceblue;font-weight: bold;" >Nombre</label>
                 </div>
-                <div class="col-md-8">
-                    <div id="profile">
-                        <div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Nombre</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>{{empresa.nombre}}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Email</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>{{empresa.email}}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Localidad</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>{{empresa.localidad}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-5">
+                  <p style="color: aliceblue;" >{{ empresa.nombre }}</p>
                 </div>
+              </div>
+              <div class="row">
+                <div class="col-md-5">
+                  <label style="color: aliceblue;font-weight: bold;" >Email</label>
+                </div>
+                <div class="col-md-5">
+                  <p style="color: aliceblue;" >{{ empresa.email }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-5">
+                  <label style="color: aliceblue;font-weight: bold;" >Localidad</label>
+                </div>
+                <div class="col-md-5">
+                  <p style="color: aliceblue;" >{{ empresa.localidad }}</p>
+                </div>
+              </div>
             </div>
-        </form>
-    </div>
-
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
