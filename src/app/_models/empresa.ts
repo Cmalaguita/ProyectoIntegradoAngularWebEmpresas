@@ -8,6 +8,7 @@ export interface Empresa {
     localidad?: string;
     direccion?:string;
     token?:string;
-    provincia?:Provincia
-
+    provincia?:Provincia;
+    emailVerificado?:boolean;
+    codigoverificacion?:string;
 }

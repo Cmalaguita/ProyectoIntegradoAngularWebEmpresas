@@ -1,8 +1,10 @@
 <body class="mainBG">
   <div class="login" style="width: 100%; height: 100%">
     <form class="custom-form" method="post">
-      <h1 style="text-align: center; color: aliceblue">Login</h1>
+      <h1 [hidden]="logincode" style="text-align: center; color: aliceblue">Login</h1>
+      <h1 [hidden]="code" style="text-align: center; color: aliceblue">Verificación</h1>
       <input
+      [hidden]="logincode"
         type="email"
         [(ngModel)]="empresa.email"
         name="email"
@@ -10,13 +12,26 @@
         required="required"
       />
       <input
+      [hidden]="logincode"
         type="password"
         [(ngModel)]="empresa.password"
         name="password"
         placeholder="Contraseña"
         required="required"
       />
-      <button type="submit" (click)="login()">Log in</button>
+    <h4 style="color: aliceblue;text-align: justify;" [hidden]="code">Su email no está verificado. Se le ha enviado un código al correo. Por favor introduzca el código para continuar.</h4>
+      <input
+        [hidden]="code"
+        type="string"
+        [(ngModel)]="verificationCode"
+        name="codigo"
+        placeholder="Codigo"
+        required="required"
+      />
+
+      <button [hidden]="logincode"  type="submit" (click)="login()">Log in</button>
+      <button [hidden]="code"  type="submit" (click)="checkCodigo()">Verificar</button>
+
       <br />
       <a routerLink="/register" routerLinkActive="router-link-active"
         >¿Aún no tienes cuenta? Regístrate</a

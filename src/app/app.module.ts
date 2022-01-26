@@ -1,4 +1,4 @@
-import { AuthInterceptorService } from './_services/auth_interceptor_service.dart.service';
+import { AuthInterceptorService } from './_services/auth_interceptor.service';
 import { EmpresaService } from './_services/empresa.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';

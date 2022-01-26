@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Empresa } from './../_models/empresa';
-import { HttpClient, HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { apiURL } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
@@ -25,4 +25,16 @@ export class EmpresaService {
 
       return this.http.post(apiURL+`/Empresa/Sign_up_Empresa`, empresa);
   }
+
+  empresaPorId(): Observable<Empresa> {
+    return this.http.get<Empresa>(apiURL+`/Empresa/Buscar_Empresa_Id`);
+}
+generarCodigo(email:string) {
+  const headers = new HttpHeaders({"accept":"text/plain","Content-Type":"application/json"})
+  return this.http.post(apiURL+'/Empresa/Generar_Codigo_Verificacion?email='+email,{headers:headers});
+}
+comprobarCodigoEmail(codigo:string,email:string): Observable<boolean> {
+  return this.http.get<boolean>(apiURL+`/Empresa/Comprobar_Codigo_Verificacion_Email?codigo=`+codigo+`&email=`+ email);
+}
+
 }
