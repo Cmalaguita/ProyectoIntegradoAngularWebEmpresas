@@ -1,9 +1,7 @@
 import { Empresa } from './../_models/empresa';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { EmpresaService } from '../_services/empresa.service';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,7 +22,8 @@ export class LoginComponent implements OnInit {
     const empresa = {email: this.empresa.email, password: this.empresa.password};
 
     this.empresaService.login(empresa).subscribe( (data) => {
-    sessionStorage.setItem('id',data)
+    sessionStorage.setItem('id',data.body!.toString())
+    sessionStorage.setItem('authorization',data.headers.get('authorization')!)
       console.log(data);
       this.route.navigate(['/navigation'])
     },error=>{

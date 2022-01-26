@@ -26,6 +26,8 @@ export class RegisterComponent implements OnInit {
     nombre:new FormControl ('', [Validators.required,Validators.nullValidator]),
     email:new FormControl ('', [Validators.required,Validators.email]),
     password: new FormControl ('', [Validators.required, Validators.minLength(6)]),
+    localidad:new FormControl(''),
+    direccion:new FormControl('')
   });
 
   listaProv: Provincia[] = [];
@@ -46,16 +48,18 @@ export class RegisterComponent implements OnInit {
     this.provinciaid = prov.id;
   }
   register() {
+
     if (this.registerForm.valid) {
 
       let empresa = {
-        email: this.empresa.email,
-        password: this.empresa.password,
-        nombre: this.empresa.nombre,
+        email: this.registerForm.get('email')?.value,
+        password: this.registerForm.get('password')?.value,
+        nombre: this.registerForm.get('nombre')?.value,
         provinciaid: this.provinciaid,
-        localidad: this.empresa.localidad,
-        direccion: this.empresa.direccion,
+        localidad: this.registerForm.get('localidad')?.value,
+        direccion: this.registerForm.get('direccion')?.value,
       };
+      console.log(empresa);
       this.empresaService.register(empresa).subscribe(
         (data) => {
           console.log(data);

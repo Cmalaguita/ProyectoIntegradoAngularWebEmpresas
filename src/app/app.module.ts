@@ -1,3 +1,5 @@
+import { AuthInterceptorService } from './_services/auth_interceptor_service.dart.service';
+import { EmpresaService } from './_services/empresa.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -6,7 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -100,6 +102,7 @@ const materialModules = [
       OffersComponent,
       DialogComponent,
 
+
    ],
   imports: [
     BrowserModule,
@@ -111,9 +114,16 @@ const materialModules = [
     FlexLayoutModule,
     MatDialogModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    },
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

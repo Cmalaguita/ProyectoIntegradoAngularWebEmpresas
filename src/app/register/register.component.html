@@ -3,21 +3,19 @@
     <h1 style="color: aliceblue;text-align: center;">Register</h1>
     <input
       type="email"
-      [(ngModel)]="empresa.email"
       formControlName="email"
       placeholder="Email"
       required="required"
     />
     <input
       type="password"
-      [(ngModel)]="empresa.password"
       formControlName="password"
       placeholder="Contraseña"
       required="required"
     />
     <input
       type="text"
-      [(ngModel)]="empresa.nombre"
+
       formControlName="nombre"
       placeholder="Nombre"
       required="required"
@@ -40,16 +38,14 @@
 
 
     <input
-      type="text"
-      [(ngModel)]="empresa.localidad"
-      name="localidad"
+    type="text"
+    formControlName="localidad"
       placeholder="Localidad"
       required="required"
     />
     <input
-      type="text"
-      [(ngModel)]="empresa.direccion"
-      name="direccion"
+    type="text"
+    formControlName="direccion"
       placeholder="Dirección"
       required="required"
     />
