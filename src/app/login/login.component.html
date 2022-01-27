@@ -3,6 +3,11 @@
     <form class="custom-form" method="post">
       <h1 [hidden]="logincode" style="text-align: center; color: aliceblue">Login</h1>
       <h1 [hidden]="code" style="text-align: center; color: aliceblue">Verificación</h1>
+      <h1 [hidden]="recopass" style="text-align: center; color: aliceblue">Cambio de contraseña</h1>
+      <h4 style="color: aliceblue;text-align: justify;" [hidden]="recomail" >Introduzca el email para el que desea solicitar el cambio de contraseña.</h4>
+      <h4 style="color: aliceblue;text-align: justify;" [hidden]="codepass" >Introduzca el código que ha recibido al correo desde el que solicita la petición</h4>
+
+      <!-- EMAIL DE LOGIN -->
       <input
       [hidden]="logincode"
         type="email"
@@ -11,6 +16,25 @@
         placeholder="Email"
         required="required"
       />
+      <!-- EMAIL DEL RECO -->
+      <input
+      [hidden]="recomail"
+        type="email"
+        [(ngModel)]="emailRecoPass"
+        name="emailRecoPass"
+        placeholder="Email"
+        required="required"
+      />
+      <!-- EMAIL VERIFICACION -->
+      <input
+      [hidden]="code"
+        type="email"
+        [(ngModel)]="emailVerificar"
+        name="emailRecoPass"
+        placeholder="Email"
+        required="required"
+      />
+      <!-- PASS DE LOGIN -->
       <input
       [hidden]="logincode"
         type="password"
@@ -19,7 +43,26 @@
         placeholder="Contraseña"
         required="required"
       />
-    <h4 style="color: aliceblue;text-align: justify;" [hidden]="code">Su email no está verificado. Se le ha enviado un código al correo. Por favor introduzca el código para continuar.</h4>
+<!-- PASS DEL RECO -->
+      <input
+      [hidden]="recopass"
+        type="password"
+        [(ngModel)]="inputRecoPass"
+        name="recoPassword"
+        placeholder="Contraseña"
+        required="required"
+      />
+<!-- REPITE PASS DEL RECO-->
+      <input
+      [hidden]="recopass"
+        type="password"
+        [(ngModel)]="inputRepeatRecoPassword"
+        name="RepeatRecoPassword"
+        placeholder="Repite Contraseña"
+        required="required"
+      />
+      <h4 style="color: aliceblue;text-align: justify;" [hidden]="code">Su email no está verificado. Se le ha enviado un código al correo. Por favor introduzca el código para continuar.</h4>
+      <!-- CODIGO VERIFICACION EMAIL -->
       <input
         [hidden]="code"
         type="string"
@@ -28,14 +71,32 @@
         placeholder="Codigo"
         required="required"
       />
+<!-- CODIGO VERIFICACION PASS -->
+      <input
+      [hidden]="codepass"
+      type="string"
+      [(ngModel)]="passCode"
+      name="codigo"
+      placeholder="Codigo"
+      required="required"
+    />
 
       <button [hidden]="logincode"  type="submit" (click)="login()">Log in</button>
       <button [hidden]="code"  type="submit" (click)="checkCodigo()">Verificar</button>
+      <button [hidden]="recomail"  type="submit" (click)="genCodePass()">Siguiente</button>
+      <button [hidden]="codepass"  type="submit" (click)="checkCodigoPass()">Siguiente</button>
+      <button [hidden]="recopass"  type="submit" (click)="cambiarPass()">Cambiar contraseña</button>
+
 
       <br />
       <a routerLink="/register" routerLinkActive="router-link-active"
         >¿Aún no tienes cuenta? Regístrate</a
       >
+      <br>
+      <br>
+      <br>
+      <h4 [hidden]="logincode" style="color: aliceblue;" (click)="emailCodePass()">¿Olvidó su contraseña?</h4>
+      <h4 [hidden]="recopass" style="color: aliceblue;" (click)="backRecoPassword()">Atrás</h4>
     </form>
     <footer
       style="
@@ -45,6 +106,7 @@
         background-color: rgb(27, 27, 27);
       "
     >
+
       <h4 style="text-align: center; color: aliceblue">
         Doors n' Corners 2021-2022. Todos los derechos reservados.
       </h4>

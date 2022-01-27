@@ -36,5 +36,12 @@ generarCodigo(email:string) {
 comprobarCodigoEmail(codigo:string,email:string): Observable<boolean> {
   return this.http.get<boolean>(apiURL+`/Empresa/Comprobar_Codigo_Verificacion_Email?codigo=`+codigo+`&email=`+ email);
 }
+comprobarCodigoPass(email:string,codigo:string): Observable<any> {
+  return this.http.get<any>(apiURL+`/Empresa/Comprobar_Codigo_Verificacion?email=`+email+`&codigo=`+ codigo);
+}
+
+cambiarPass(pass:string,email:string): Observable<any> {
+  return this.http.get<any>(apiURL+`/Empresa/Cambiar_Password_Empresa?pass=`+pass+`&email=`+email);
+}
 
 }

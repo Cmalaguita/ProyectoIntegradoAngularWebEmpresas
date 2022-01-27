@@ -1,5 +1,5 @@
 import { Empresa } from './../_models/empresa';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { apiURL } from 'src/environments/environment';
@@ -18,5 +18,7 @@ export class ProfileService {
     return this.http.get<Empresa>( apiURL+`/Empresa/Buscar_Empresa_Id?id=`+id);
 
   }
-
+  updateProfile(empresa:Empresa) {
+    return this.http.post(apiURL+'/Empresa/Actualizar_Empresa',empresa);
+  }
 }
