@@ -1,3 +1,4 @@
+import { ContactDialogComponent } from './../contact-dialog/contact-dialog.component';
 import { Inscripcion } from './../_models/inscripcion';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -66,6 +67,30 @@ console.log(data);
 
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '100%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('Dialog was closed');
+      console.log(result);
+    });
+  }
+
+  openModalContacto(p:PosicionDeTrabajo,a:Alumno|undefined) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      id: 2,
+      title: 'Mensaje para el candidato',
+    };
+
+    const dialogRef = this.dialog.open(ContactDialogComponent, {
+
+      data:{
+      p:p,
+      a:a
+      }
     });
 
     dialogRef.afterClosed().subscribe((result) => {

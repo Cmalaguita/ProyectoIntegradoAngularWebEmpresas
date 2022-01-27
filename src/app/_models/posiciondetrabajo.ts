@@ -1,3 +1,4 @@
+import { Empresa } from './empresa';
 import { Inscripcion } from './inscripcion';
 import { Alumno } from "./alumno";
 import { Ciclo } from "./ciclo";
@@ -9,6 +10,7 @@ export interface PosicionDeTrabajo {
   fechaInicio: Date;
   fechaFin: Date;
   empresaid: number;
+  empresa?:Empresa;
   ciclos: Ciclo[];
   descripcion: string;
   horario?: string;

@@ -2,7 +2,7 @@
 export interface Empresa {
     id?: number;
     email: string;
-    password: string;
+    password?: string;
     nombre?: string;
     provinciaid?:number;
     localidad?: string;

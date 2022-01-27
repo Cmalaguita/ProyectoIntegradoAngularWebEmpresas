@@ -52,6 +52,8 @@ import { NavigationDrawerComponent } from './navigationDrawer/navigationDrawer.c
 import { OffersComponent } from './offers/offers.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
+import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
+import { ProfileDialogComponent } from './profile-dialog/profile-dialog.component';
 
 const materialModules = [
   CdkTreeModule,
@@ -92,7 +94,7 @@ const materialModules = [
 
 ];
 @NgModule({
-  declarations: [
+  declarations: [		
     AppComponent,
       LoginComponent,
       RegisterComponent,
@@ -101,8 +103,8 @@ const materialModules = [
       NavigationDrawerComponent,
       OffersComponent,
       DialogComponent,
-
-
+      ContactDialogComponent,
+      ProfileDialogComponent
    ],
   imports: [
     BrowserModule,
