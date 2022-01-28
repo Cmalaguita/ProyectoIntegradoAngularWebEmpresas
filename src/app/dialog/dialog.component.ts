@@ -16,95 +16,104 @@ export class DialogComponent implements OnInit {
   listaTipos: Tipociclo[] = [];
   listaFamilias: Familia[] = [];
   listaCiclos: Ciclo[] = [];
-  listaCiclosEnPosicion: Ciclo[]=[];
-  CicloEnPosicion! : Ciclo;
+  listaCiclosEnPosicion: Ciclo[] = [];
+  CicloEnPosicion!: Ciclo;
   error: boolean = false;
-  idFamilia!:number;
-  idTipo!:number;
-  idCiclo!:number;
-  posicionDeTrabajo!:PosicionDeTrabajo;
-  constructor(private cicloService: CicloService,private offerService:OfferService) {
-
-this.posicionDeTrabajo={
-  nombre:"",
-  fechaInicio:new Date(),
-  fechaFin:new Date(),
-  empresaid:Number(sessionStorage.getItem("id")),
-  ciclos:[],
-  descripcion:"",
-  remuneracion:0,
-  horario:""
-}
-
+  idFamilia!: number;
+  idTipo!: number;
+  idCiclo!: number;
+  posicionDeTrabajo!: PosicionDeTrabajo;
+  constructor(
+    private cicloService: CicloService,
+    private offerService: OfferService
+  ) {
+    this.posicionDeTrabajo = {
+      nombre: '',
+      fechaInicio: new Date(),
+      fechaFin: new Date(),
+      empresaid: Number(sessionStorage.getItem('id')),
+      ciclos: [],
+      descripcion: '',
+      remuneracion: 0,
+      horario: '',
+    };
   }
 
-  changeselectedTipo(Tipociclo:Tipociclo){
-this.idTipo=Tipociclo.id
-console.log("IDTIPOCICLO"+this.idTipo)
+  changeselectedTipo(Tipociclo: Tipociclo) {
+    this.idTipo = Tipociclo.id;
+    console.log('IDTIPOCICLO' + this.idTipo);
   }
 
-  changeselectedFamilia(Familia:Familia){
-    this.idFamilia=Familia.id
-    console.log("IDFAMILIA "+this.idFamilia)
-      }
-      changeselectedCiclo(Ciclo:Ciclo){
+  changeselectedFamilia(Familia: Familia) {
+    this.idFamilia = Familia.id;
+    console.log('IDFAMILIA ' + this.idFamilia);
+  }
+  changeselectedCiclo(Ciclo: Ciclo) {
+    if (!this.listaCiclosEnPosicion.some((x) => x.id == Ciclo.id)) {
+      this.listaCiclosEnPosicion.push(Ciclo);
+    }
 
-        if (!this.listaCiclosEnPosicion.some(x=>x.id==Ciclo.id)) {
+    console.log(this.listaCiclosEnPosicion);
+  }
+  crearPosicion() {
+    let posicionDeTrabajo = {
+      nombre: this.posicionDeTrabajo.nombre,
+      fechaInicio: this.posicionDeTrabajo.fechaInicio,
+      fechaFin: this.posicionDeTrabajo.fechaFin,
+      empresaid: Number(sessionStorage.getItem('id')),
+      ciclos: this.listaCiclosEnPosicion,
+      descripcion: this.posicionDeTrabajo.descripcion,
+      horario: this.posicionDeTrabajo.horario,
+      remuneracion: this.posicionDeTrabajo.remuneracion,
+    };
+    console.log(posicionDeTrabajo);
+    this.offerService.createOffer(posicionDeTrabajo).subscribe((result) => {
+      console.log(result);
+      window.location.reload();
+    });
+  }
 
-          this.listaCiclosEnPosicion.push(Ciclo);
+  cargarCiclos() {
+    this.cicloService
+      .getCiclosByFamiliaAndTipo(
+        this.idTipo.toString(),
+        this.idFamilia.toString()
+      )
+      .subscribe(
+        (data) => {
+          this.listaCiclos = data;
+          console.log(data);
+        },
+        (error) => {
+          this.error = true;
+          alert(
+            'Debe seleccionar la familia profesional y el tipo de ciclo primero'
+          );
         }
-
-        console.log(this.listaCiclosEnPosicion);
-          }
-  crearPosicion(){
-    let posicionDeTrabajo={
-      nombre:this.posicionDeTrabajo.nombre,
-      fechaInicio:this.posicionDeTrabajo.fechaInicio,
-      fechaFin:this.posicionDeTrabajo.fechaFin,
-      empresaid:Number(sessionStorage.getItem("id")),
-      ciclos:this.listaCiclosEnPosicion,
-      descripcion:this.posicionDeTrabajo.descripcion,
-      horario:this.posicionDeTrabajo.horario,
-      remuneracion:this.posicionDeTrabajo.remuneracion
-      };
-      console.log(posicionDeTrabajo);
-      this.offerService.createOffer(posicionDeTrabajo).subscribe((result)=>{
-        console.log(result);
-        window.location.reload();
-      });
-  }
-
-  cargarCiclos(){
-    this.cicloService.getCiclosByFamiliaAndTipo(this.idTipo.toString(),this.idFamilia.toString()).subscribe(
-      (data) => {
-        this.listaCiclos = data;
-        console.log(data);
-      },
-      (error) => {
-        this.error = true;
-        alert("Debe seleccionar la familia profesional y el tipo de ciclo primero");
-      }
-    );
+      );
   }
 
   ngOnInit(): void {
-    this.cicloService.getAllTipos().subscribe((tipos) => {
-      this.listaTipos = tipos;
-      console.log(this.listaTipos);
-    },
-    (error) => {
-      this.error = true;
-      alert("No se han podido cargar los tipos de ciclo");
-    });
-    this.cicloService.getAllFamilias().subscribe((familias) => {
-      this.listaFamilias = familias;
-      console.log(this.listaFamilias);
-    },
+    this.cicloService.getAllTipos().subscribe(
+      (tipos) => {
+        this.listaTipos = tipos;
+        console.log(this.listaTipos);
+      },
+      (error) => {
+        this.error = true;
+        alert('No se han podido cargar los tipos de ciclo');
+      }
+    );
+    this.cicloService.getAllFamilias().subscribe(
+      (familias) => {
+        this.listaFamilias = familias;
+        console.log(this.listaFamilias);
+      },
 
-    (error) => {
-      this.error = true;
-      alert("No se han podido cargar las familias profesionales");
-    }
+      (error) => {
+        this.error = true;
+        alert('No se han podido cargar las familias profesionales');
+      }
     );
   }
 }

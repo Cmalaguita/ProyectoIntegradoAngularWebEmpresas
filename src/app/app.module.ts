@@ -8,7 +8,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -50,7 +54,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FlexModule } from '@angular/flex-layout';
 import { NavigationDrawerComponent } from './navigationDrawer/navigationDrawer.component';
 import { OffersComponent } from './offers/offers.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
 import { ProfileDialogComponent } from './profile-dialog/profile-dialog.component';
@@ -90,22 +94,21 @@ const materialModules = [
   MatTooltipModule,
   FlexLayoutModule,
   FlexModule,
-  MatDialogModule
-
+  MatDialogModule,
 ];
 @NgModule({
-  declarations: [		
+  declarations: [
     AppComponent,
-      LoginComponent,
-      RegisterComponent,
-      HomeComponent,
-      ProfileComponent,
-      NavigationDrawerComponent,
-      OffersComponent,
-      DialogComponent,
-      ContactDialogComponent,
-      ProfileDialogComponent
-   ],
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent,
+    ProfileComponent,
+    NavigationDrawerComponent,
+    OffersComponent,
+    DialogComponent,
+    ContactDialogComponent,
+    ProfileDialogComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -122,10 +125,9 @@ const materialModules = [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
-      multi: true
+      multi: true,
     },
-
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

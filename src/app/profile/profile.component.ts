@@ -12,57 +12,60 @@ import { ContactDialogComponent } from '../contact-dialog/contact-dialog.compone
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-    name = 'Petunia Gregor';
-  provincia!:Provincia | undefined;
-  empresa!:Empresa;
-  error:boolean=false;
-  id:string|any= sessionStorage.getItem('id');
-  constructor(private profileService:ProfileService,private provinciaService:ProvinciaService,private profileDialog:MatDialog) {
-    this.empresa={
-      email:"",
-      password:"",
-      provinciaid:0
+  name = 'Petunia Gregor';
+  provincia!: Provincia | undefined;
+  empresa!: Empresa;
+  error: boolean = false;
+  id: string | any = sessionStorage.getItem('id');
+  constructor(
+    private profileService: ProfileService,
+    private provinciaService: ProvinciaService,
+    private profileDialog: MatDialog
+  ) {
+    this.empresa = {
+      email: '',
+      password: '',
+      provinciaid: 0,
     };
-   }
-buildProfile(){
-  this.profileService.getEmpresa(this.id).subscribe((data)=>{
-    this.empresa=data;
-console.log(this.empresa)
-
-  },
-  error=>{
-    this.error=true;
-    console.log(this.empresa);
-        });
-}
-
-openModalUpdate(e:Empresa) {
-  const dialogConfig = new MatDialogConfig();
-  dialogConfig.disableClose = true;
-  dialogConfig.autoFocus = true;
-  dialogConfig.data = {
-    id: 2,
-    title: 'Editar perfil',
-  };
-
-  const dialogRef = this.profileDialog.open(ProfileDialogComponent, {
-
-    data:{
-    "e":e
-    }
-  });
-
-  dialogRef.afterClosed().subscribe((result) => {
-    console.log('Dialog was closed');
-    console.log(result);
-  });
-}
-
-  ngOnInit() {
-this.buildProfile();
+  }
+  buildProfile() {
+    this.profileService.getEmpresa(this.id).subscribe(
+      (data) => {
+        this.empresa = data;
+        console.log(this.empresa);
+      },
+      (error) => {
+        this.error = true;
+        console.log(this.empresa);
+      }
+    );
   }
 
+  openModalUpdate(e: Empresa) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      id: 2,
+      title: 'Editar perfil',
+    };
+
+    const dialogRef = this.profileDialog.open(ProfileDialogComponent, {
+      data: {
+        e: e,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('Dialog was closed');
+      console.log(result);
+    });
+  }
+
+  ngOnInit() {
+    this.buildProfile();
+  }
 }

@@ -24,16 +24,14 @@ export class OffersComponent implements OnInit {
     public dialog: MatDialog,
     private applyService: ApplyService
   ) {}
-  dateFormat(date:string){
-return date.split("T")[0];
+  dateFormat(date: string) {
+    return date.split('T')[0];
   }
-  changeselected(estado: string, inscripcion:Inscripcion) {
-
-
-    inscripcion.estadoInscripcion=estado;
-    this.applyService.updateApply(inscripcion).subscribe((data)=>{
-console.log(data);
-    },);
+  changeselected(estado: string, inscripcion: Inscripcion) {
+    inscripcion.estadoInscripcion = estado;
+    this.applyService.updateApply(inscripcion).subscribe((data) => {
+      console.log(data);
+    });
   }
   loadOffers() {
     this.offerService.getOffersByEmpresaId(this.empresaid).subscribe(
@@ -46,7 +44,6 @@ console.log(data);
               pos.listaInscritos = data;
             });
         });
-
       },
 
       (error) => {
@@ -75,7 +72,7 @@ console.log(data);
     });
   }
 
-  openModalContacto(p:PosicionDeTrabajo,a:Alumno|undefined) {
+  openModalContacto(p: PosicionDeTrabajo, a: Alumno | undefined) {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
@@ -86,11 +83,10 @@ console.log(data);
     };
 
     const dialogRef = this.dialog.open(ContactDialogComponent, {
-
-      data:{
-      p:p,
-      a:a
-      }
+      data: {
+        p: p,
+        a: a,
+      },
     });
 
     dialogRef.afterClosed().subscribe((result) => {

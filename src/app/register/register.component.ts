@@ -23,11 +23,17 @@ export class RegisterComponent implements OnInit {
   error: boolean = false;
   provinciaid: number = 0;
   registerForm: FormGroup = new FormGroup({
-    nombre:new FormControl ('', [Validators.required,Validators.nullValidator]),
-    email:new FormControl ('', [Validators.required,Validators.email]),
-    password: new FormControl ('', [Validators.required, Validators.minLength(6)]),
-    localidad:new FormControl(''),
-    direccion:new FormControl('')
+    nombre: new FormControl('', [
+      Validators.required,
+      Validators.nullValidator,
+    ]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+    localidad: new FormControl(''),
+    direccion: new FormControl(''),
   });
 
   listaProv: Provincia[] = [];
@@ -48,9 +54,7 @@ export class RegisterComponent implements OnInit {
     this.provinciaid = prov.id;
   }
   register() {
-
     if (this.registerForm.valid) {
-
       let empresa = {
         email: this.registerForm.get('email')?.value,
         password: this.registerForm.get('password')?.value,
@@ -70,14 +74,11 @@ export class RegisterComponent implements OnInit {
           console.log(empresa);
         }
       );
-    }else{
-this.registerForm.markAllAsTouched();
+    } else {
+      this.registerForm.markAllAsTouched();
     }
   }
   ngOnInit() {
-
-
-
     this.provinciaService.getAll().subscribe(
       (data) => {
         this.listaProv = data;

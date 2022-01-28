@@ -10,19 +10,22 @@ import { ProvinciaService } from '../_services/provincia.service';
 @Component({
   selector: 'app-profile-dialog',
   templateUrl: './profile-dialog.component.html',
-  styleUrls: ['./profile-dialog.component.css']
+  styleUrls: ['./profile-dialog.component.css'],
 })
 export class ProfileDialogComponent implements OnInit {
-  e:Empresa={
-    email: ''
-  }
+  e: Empresa = {
+    email: '',
+  };
   empresa!: Empresa;
   error: boolean = false;
   provinciaid: number = 0;
   updateForm: FormGroup = new FormGroup({
-    nombre:new FormControl ('', [Validators.required,Validators.nullValidator]),
-    localidad:new FormControl(''),
-    direccion:new FormControl('')
+    nombre: new FormControl('', [
+      Validators.required,
+      Validators.nullValidator,
+    ]),
+    localidad: new FormControl(''),
+    direccion: new FormControl(''),
   });
 
   listaProv: Provincia[] = [];
@@ -30,7 +33,7 @@ export class ProfileDialogComponent implements OnInit {
     private provinciaService: ProvinciaService,
     private empresaService: EmpresaService,
     private route: Router,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.empresa = {
       email: '',
@@ -44,11 +47,9 @@ export class ProfileDialogComponent implements OnInit {
     this.provinciaid = prov.id;
   }
   updateProfile() {
-
     if (this.updateForm.valid) {
-
       let empresa = {
-        email: this.e.email ,
+        email: this.e.email,
         nombre: this.updateForm.get('nombre')?.value,
         provinciaid: this.provinciaid,
         localidad: this.updateForm.get('localidad')?.value,
@@ -65,12 +66,12 @@ export class ProfileDialogComponent implements OnInit {
           console.log(empresa);
         }
       );
-    }else{
-this.updateForm.markAllAsTouched();
+    } else {
+      this.updateForm.markAllAsTouched();
     }
   }
   ngOnInit() {
-    this.e=this.data.e;
+    this.e = this.data.e;
     this.provinciaService.getAll().subscribe(
       (data) => {
         this.listaProv = data;
