@@ -29,8 +29,19 @@ export class OfferService {
   }
 
   delete(id: string) {
+    console.log(id);
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: {
+        id: Number(id),
+      },
+
+
+    };
     return this.http.delete(
-      apiURL + `/PosicionDeTrabajo/Eliminar_Posicion_De_Trabajo?id=` + id
+      apiURL + `/PosicionDeTrabajo/Eliminar_Posicion_De_Trabajo`, options
     );
   }
 

@@ -15,13 +15,26 @@
 
 <div class="row">
   <div class="col-12">
-    <mat-grid-list cols="3" rowHeight="700px">
+    <mat-grid-list cols="3" rowHeight="800px">
       <mat-grid-tile colspan="1" rowspan="1" *ngFor="let pos of listapos">
         <mat-card
           class="card m-3"
-          style="background-color: black; min-height: 550px; width: 500px"
+          style="background-color: black; min-height: 550px; width: 500px;"
         >
-          <mat-card-title style="color: rgb(231, 210, 16);">{{ pos.nombre }} </mat-card-title>
+        <!-- <a><mat-icon style="color: aliceblue;margin-right: 0%;width: 100%;text-align: end;">update</mat-icon>	<mat-icon style="color: aliceblue;margin-right: 0%;width: 100%;text-align: end;">delete_forever</mat-icon></a> -->
+<section style="width: 100%; text-align: right;">
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <button (click)="openModal()" mat-icon-button color="accent" aria-label="modificar posicion">
+        <mat-icon>update</mat-icon>
+      </button>
+      <button (click)="borrarPosicion(pos.id!.toString())" mat-icon-button color="warn" aria-label="borrar posicion">
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+    </div>
+  </div>
+</section>
+        <mat-card-title style="color: rgb(231, 210, 16);">{{ pos.nombre }} </mat-card-title>
           <mat-card-content>
             <div>
               <table>

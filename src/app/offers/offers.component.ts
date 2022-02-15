@@ -52,6 +52,17 @@ export class OffersComponent implements OnInit {
       }
     );
   }
+  borrarPosicion(id:string){
+    if (id!=null) {
+      console.log("ID PARA BORRAR "+ id)
+      this.offerService.delete(id).subscribe((response)=>{
+        if (response) {
+
+          window.location.reload();
+        }
+      });
+    }
+  }
   openModal() {
     const dialogConfig = new MatDialogConfig();
 
