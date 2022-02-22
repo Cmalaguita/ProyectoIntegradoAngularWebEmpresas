@@ -8,6 +8,9 @@ import { Inscripcion } from '../_models/inscripcion';
   providedIn: 'root',
 })
 export class ApplyService {
+  idFamilia!: number;
+  idTipo!: number;
+  idCiclo!: number;
   constructor(private http: HttpClient) {}
   updateApply(inscripcion: Inscripcion) {
     return this.http.put(
@@ -30,4 +33,12 @@ export class ApplyService {
         idPosicion
     );
   }
+
+  getStudentsPremium() {
+    return this.http.get<Alumno[]>(
+      apiURL +
+        `/Alumno/Obtener_Todos_Los_Alumnos`
+    );
+  }
+
 }

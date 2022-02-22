@@ -3,7 +3,7 @@ import { Provincia } from './provincia';
 export interface Alumno {
     id?: number;
     email: string;
-    password: string;
+    password?: string;
     nombre?: string;
     apellidos:string;
     provinciaid?:number;

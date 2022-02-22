@@ -58,6 +58,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
 import { ProfileDialogComponent } from './profile-dialog/profile-dialog.component';
+import { UpdateOfferDialogComponent } from './update-offer-dialog/update-offer-dialog.component';
+import { StudentPremiumListComponent } from './student-premium-list/student-premium-list.component';
 
 const materialModules = [
   CdkTreeModule,
@@ -97,7 +99,7 @@ const materialModules = [
   MatDialogModule,
 ];
 @NgModule({
-  declarations: [
+  declarations: [		
     AppComponent,
     LoginComponent,
     RegisterComponent,
@@ -108,7 +110,9 @@ const materialModules = [
     DialogComponent,
     ContactDialogComponent,
     ProfileDialogComponent,
-  ],
+      UpdateOfferDialogComponent,
+      StudentPremiumListComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

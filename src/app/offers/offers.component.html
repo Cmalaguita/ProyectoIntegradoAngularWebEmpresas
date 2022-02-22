@@ -15,26 +15,36 @@
 
 <div class="row">
   <div class="col-12">
-    <mat-grid-list cols="3" rowHeight="800px">
+    <mat-grid-list cols="3" rowHeight="900px">
       <mat-grid-tile colspan="1" rowspan="1" *ngFor="let pos of listapos">
         <mat-card
           class="card m-3"
-          style="background-color: black; min-height: 550px; width: 500px;"
-        >
-        <!-- <a><mat-icon style="color: aliceblue;margin-right: 0%;width: 100%;text-align: end;">update</mat-icon>	<mat-icon style="color: aliceblue;margin-right: 0%;width: 100%;text-align: end;">delete_forever</mat-icon></a> -->
-<section style="width: 100%; text-align: right;">
-  <div class="example-button-row">
-    <div class="example-flex-container">
-      <button (click)="openModal()" mat-icon-button color="accent" aria-label="modificar posicion">
-        <mat-icon>update</mat-icon>
-      </button>
-      <button (click)="borrarPosicion(pos.id!.toString())" mat-icon-button color="warn" aria-label="borrar posicion">
-        <mat-icon>delete_forever</mat-icon>
-      </button>
-    </div>
-  </div>
-</section>
-        <mat-card-title style="color: rgb(231, 210, 16);">{{ pos.nombre }} </mat-card-title>
+          style="background-color: black; min-height: 550px; width: 500px"
+        >          <section style="width: 100%; text-align: right">
+            <div class="example-button-row">
+              <div class="example-flex-container">
+                <button
+                  (click)="openModal()"
+                  mat-icon-button
+                  color="accent"
+                  aria-label="modificar posicion"
+                >
+                  <mat-icon>update</mat-icon>
+                </button>
+                <button
+                  (click)="borrarPosicion(pos.id!.toString())"
+                  mat-icon-button
+                  color="warn"
+                  aria-label="borrar posicion"
+                >
+                  <mat-icon>delete_forever</mat-icon>
+                </button>
+              </div>
+            </div>
+          </section>
+          <mat-card-title style="color: rgb(231, 210, 16)"
+            >{{ pos.nombre }}
+          </mat-card-title>
           <mat-card-content>
             <div>
               <table>
@@ -56,9 +66,11 @@
               </tr>
               <tr>
                 <td style="color: aliceblue" type="date">
-                  {{dateFormat(pos.fechaInicio.toString()) }}
+                  {{ dateFormat(pos.fechaInicio.toString()) }}
                 </td>
-                <td style="color: aliceblue" type="date">{{dateFormat( pos.fechaFin.toString()) }}</td>
+                <td style="color: aliceblue" type="date">
+                  {{ dateFormat(pos.fechaFin.toString()) }}
+                </td>
               </tr>
               <tr>
                 <th style="color: aliceblue">Horario:</th>
@@ -68,38 +80,44 @@
                 <td style="color: aliceblue">{{ pos.horario }}</td>
                 <td style="color: aliceblue">{{ pos.remuneracion }}€</td>
               </tr>
-              <tr>
-              </tr>
-              <tr>
-              </tr>
+              <tr></tr>
+              <tr></tr>
               <tr>
                 <td></td>
               </tr>
             </table>
-            <h4 style="color: aliceblue;font-weight: bold;">Ciclos:</h4>
+            <h4 style="color: aliceblue; font-weight: bold">Ciclos:</h4>
             <div class="scrollmenu">
-              <mat-chip *ngFor="let c of pos.ciclos" style="background-color: rgb(231, 210, 16); color: black; font-weight: bold;margin: 5px;border-radius: 15px;padding-inline: 5px;">
-
-                {{c.nombre}}
+              <mat-chip
+                *ngFor="let c of pos.ciclos"
+                style="
+                  background-color: rgb(231, 210, 16);
+                  color: black;
+                  font-weight: bold;
+                  margin: 5px;
+                  border-radius: 15px;
+                  padding-inline: 5px;
+                "
+              >
+                {{ c.nombre }}
               </mat-chip>
-
             </div>
             <h4 style="color: aliceblue; font-weight: bold">
               Alumnos Inscritos
             </h4>
             <div class="scrollmenu">
               <mat-card
-              style="min-width: 400px"
-              class="card m-2"
-              *ngFor="let a of pos.listaInscritos"
+                style="min-width: 400px"
+                class="card m-2"
+                *ngFor="let a of pos.listaInscritos"
               >
-              <mat-card-title>
-                {{ a.alumno!.nombre }}
-              </mat-card-title>
-              <mat-card-subtitle>
-                {{ a.alumno!.apellidos }}
-              </mat-card-subtitle>
-              <mat-card-content>
+                <mat-card-title>
+                  {{ a.alumno!.nombre }}
+                </mat-card-title>
+                <mat-card-subtitle>
+                  {{ a.alumno!.apellidos }}
+                </mat-card-subtitle>
+                <mat-card-content>
                   <table>
                     <tr>
                       <td style="font-weight: bold">Provincia:</td>
@@ -111,7 +129,9 @@
                     </tr>
                     <tr>
                       <td style="font-weight: bold">Nacimiento:</td>
-                      <td>{{dateFormat(a.alumno!.fechaDeNacimiento.toString()) }}</td>
+                      <td>
+                        {{ dateFormat(a.alumno!.fechaDeNacimiento.toString()) }}
+                      </td>
                     </tr>
                     <tr>
                       <td style="font-weight: bold">Nota media:</td>
@@ -141,7 +161,19 @@
                         </mat-form-field>
                       </td>
                     </tr>
-                    <tr><button (click)="openModalContacto(pos,a.alumno)" mat-button style="background-color:rgb(231, 210, 16);border-radius: 20;border-color: black;">Contactar</button></tr>
+                    <tr>
+                      <button
+                        (click)="openModalContacto(pos, a.alumno)"
+                        mat-button
+                        style="
+                          background-color: rgb(231, 210, 16);
+                          border-radius: 20;
+                          border-color: black;
+                        "
+                      >
+                        Contactar
+                      </button>
+                    </tr>
                   </table>
                 </mat-card-content>
               </mat-card>

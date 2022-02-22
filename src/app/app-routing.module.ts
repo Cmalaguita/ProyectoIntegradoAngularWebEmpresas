@@ -1,3 +1,4 @@
+import { StudentPremiumListComponent } from './student-premium-list/student-premium-list.component';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NgModule } from '@angular/core';
@@ -15,7 +16,8 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent},
     { path: '', component: OffersComponent},
     { path: 'profile', component: ProfileComponent },
-    { path: 'offers', component: OffersComponent }
+    { path: 'offers', component: OffersComponent },
+    { path: 'premium', component: StudentPremiumListComponent }
   ] },
 
   { path: '**',redirectTo:'' }
