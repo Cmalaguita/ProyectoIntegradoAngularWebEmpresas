@@ -11,4 +11,5 @@ export interface Empresa {
     provincia?:Provincia;
     emailVerificado?:boolean;
     codigoverificacion?:string;
+    empresaStripeID?:string;
 }

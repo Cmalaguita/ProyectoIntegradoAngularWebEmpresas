@@ -1,6 +1,87 @@
-<h1 style="font-size: 55px;margin-top: 30px;margin-left: 20px;">Lista de candidatos</h1>
-<mat-grid-list cols="3" rowHeight="300px" gutterSize="10px" >
-  <mat-grid-tile *ngFor="let a of alumnos" style="background-color: aquamarine;width:min-content;">
+<div style="margin-top: 30px; margin-left: 20px">
+  <H1>Búsqueda de candidatos</H1>
+  <table>
+    <tr>
+      <td>
+        <!-- SELECT FAMILIASPROFESIONALES -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Familia profesional</mat-label>
+          <mat-select (selectionChange)="changeselectedFamilia($event.value)">
+            <mat-option *ngFor="let f of listaFamilias" [value]="f">
+              {{ f.nombre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td>
+        <!-- SELECT TIPOCICLOS -->
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Tipo de ciclo</mat-label>
+          <mat-select (selectionChange)="changeselectedTipo($event.value)">
+            <mat-option *ngFor="let t of listaTipos" [value]="t">
+              {{ t.nombre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td>
+        <!-- SELECT CICLOS -->
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Ciclo</mat-label>
+          <mat-select
+            (click)="cargarCiclos()"
+            (selectionChange)="changeselectedCiclo($event.value)"
+          >
+            <mat-option *ngFor="let c of listaCiclos" [value]="c">
+              {{ c.nombre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Provincia</mat-label>
+          <mat-select (selectionChange)="changeselectedProvincia($event.value)">
+            <mat-option *ngFor="let p of listaProv" [value]="p">
+              {{ p.nombre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <!-- ESPACIADOR DEL BOTON -->
+      <td style="width: 10%"></td>
+
+      <!-- BOTON DE BUSQUEDA -->
+      <td>
+        <div class="example-button-row">
+          <div class="example-flex-container">
+            <button
+              style="background-color: black; color: aliceblue"
+              mat-raised-button
+              aria-label="modificar posicion"
+              (click)="busquedaDeAlumnos()"
+            >
+              Buscar
+              <mat-icon>search</mat-icon>
+            </button>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<!-- TERMINA LA PARTE DE BUSQUEDA, COMIENZA LA DE RESULTADOS -->
+<h1 style="font-size: 35px; margin-top: 30px; margin-left: 20px">
+  Lista de candidatos
+</h1>
+<mat-divider></mat-divider>
+
+<!-- LISTA ALUMNOS -->
+<mat-grid-list cols="3" rowHeight="300px" gutterSize="10px">
+  <mat-grid-tile *ngFor="let a of alumnosBusqueda" style="width: min-content">
     <mat-card
       class="card m-3"
       style="background-color: black; min-height: 200px; width: 350px"
@@ -8,11 +89,12 @@
       <section style="width: 100%; text-align: right">
         <div class="example-button-row">
           <div class="example-flex-container">
-            <button style="color: yellow;"
-              mat-icon-button
+            <button
+              style="background-color: yellow; color: black"
+              mat-raised-button
               aria-label="modificar posicion"
             >
-              <mat-icon>contact_mail</mat-icon>
+              Mensaje
             </button>
           </div>
         </div>

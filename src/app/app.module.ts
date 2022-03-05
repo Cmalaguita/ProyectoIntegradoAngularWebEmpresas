@@ -58,9 +58,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
 import { ProfileDialogComponent } from './profile-dialog/profile-dialog.component';
-import { UpdateOfferDialogComponent } from './update-offer-dialog/update-offer-dialog.component';
 import { StudentPremiumListComponent } from './student-premium-list/student-premium-list.component';
-
+import { MatSlideToggleModule, MatSlideToggle } from '@angular/material/slide-toggle';
+import { PremiumDialogComponent } from './premium-dialog/premium-dialog.component';
 const materialModules = [
   CdkTreeModule,
   MatAutocompleteModule,
@@ -87,6 +87,7 @@ const materialModules = [
   MatFormFieldModule,
   MatButtonToggleModule,
   MatTreeModule,
+  MatSlideToggleModule,
   OverlayModule,
   PortalModule,
   MatBadgeModule,
@@ -99,7 +100,7 @@ const materialModules = [
   MatDialogModule,
 ];
 @NgModule({
-  declarations: [		
+  declarations: [	
     AppComponent,
     LoginComponent,
     RegisterComponent,
@@ -110,8 +111,8 @@ const materialModules = [
     DialogComponent,
     ContactDialogComponent,
     ProfileDialogComponent,
-      UpdateOfferDialogComponent,
-      StudentPremiumListComponent
+      StudentPremiumListComponent,
+      PremiumDialogComponent
    ],
   imports: [
     BrowserModule,

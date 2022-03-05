@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
   empresa!: Empresa;
   error: boolean = false;
   provinciaid: number = 0;
+  premium:boolean=false;
   registerForm: FormGroup = new FormGroup({
     nombre: new FormControl('', [
       Validators.required,
@@ -32,6 +33,7 @@ export class RegisterComponent implements OnInit {
       Validators.required,
       Validators.minLength(6),
     ]),
+    premiumform: new FormControl(''),
     localidad: new FormControl(''),
     direccion: new FormControl(''),
   });
@@ -53,6 +55,15 @@ export class RegisterComponent implements OnInit {
     console.log('CONSOLE LOG DE PROV ID EN CHANGESELECTED: ' + prov.id);
     this.provinciaid = prov.id;
   }
+  changePremium(){
+    if (!this.premium) {
+    this.premium=true;
+    }else if (this.premium) {
+      this.premium=false;
+    }
+    console.log(this.premium);
+
+  }
   register() {
     if (this.registerForm.valid) {
       let empresa = {
@@ -63,17 +74,34 @@ export class RegisterComponent implements OnInit {
         localidad: this.registerForm.get('localidad')?.value,
         direccion: this.registerForm.get('direccion')?.value,
       };
-      console.log(empresa);
-      this.empresaService.register(empresa).subscribe(
-        (data) => {
-          console.log(data);
-          this.route.navigate(['/login']);
-        },
-        (error) => {
-          this.error = true;
-          console.log(empresa);
-        }
-      );
+      if (!this.registerForm.get('premiumform')?.value) {
+        this.empresaService.register(empresa).subscribe(
+          (data) => {
+            console.log(data);
+            this.route.navigate(['/login']);
+          },
+          (error) => {
+            this.error = true;
+            console.log(empresa);
+          }
+        );
+      }else if (this.registerForm.get('premiumform')?.value) {
+        this.empresaService.register(empresa).subscribe(
+          (data) => {
+            console.log(data);
+            this.empresaService.crearSuscripcionPremium(data).subscribe((response)=>{
+            console.log(response);
+              window.location.href=response;
+
+            });
+
+          },
+          (error) => {
+            this.error = true;
+            console.log(empresa);
+          }
+        );
+      }
     } else {
       this.registerForm.markAllAsTouched();
     }

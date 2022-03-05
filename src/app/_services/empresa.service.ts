@@ -23,8 +23,8 @@ export class EmpresaService {
     );
   }
 
-  register(empresa: Empresa): Observable<any> {
-    return this.http.post(apiURL + `/Empresa/Sign_up_Empresa`, empresa);
+  register(empresa: Empresa): Observable<Empresa> {
+    return this.http.post<Empresa>(apiURL + `/Empresa/Sign_up_Empresa`, empresa);
   }
 
   updateProfile(empresa: Empresa): Observable<any> {
@@ -62,7 +62,6 @@ export class EmpresaService {
         codigo
     );
   }
-
   cambiarPass(pass: string, email: string): Observable<any> {
     return this.http.get<any>(
       apiURL +
@@ -70,6 +69,25 @@ export class EmpresaService {
         pass +
         `&email=` +
         email
+    );
+  }
+
+  crearSuscripcionPremium(empresa: Empresa) {
+
+    return this.http.post(
+      apiURL + '/Contrato/Crear_Sus_Premium' , empresa,
+      {responseType: 'text'}
+    );
+  }
+  comprobarPremium( empresaId: string): Observable<any> {
+    const headers = new HttpHeaders({
+      accept: 'text/plain',
+      'Content-Type': 'application/json',
+    });
+    return this.http.post<any>(
+      apiURL +
+        `/Contrato/Comprobar_Sus_Premium?empresaId=`+empresaId,
+        { headers: headers }
     );
   }
 }

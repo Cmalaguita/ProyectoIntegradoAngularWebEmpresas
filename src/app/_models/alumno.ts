@@ -6,7 +6,7 @@ export interface Alumno {
     password?: string;
     nombre?: string;
     apellidos:string;
-    provinciaid?:number;
+    idProvincia?:number;
     idCiclo?:number;
     ciclo?:Ciclo;
     fechaDeNacimiento:Date;

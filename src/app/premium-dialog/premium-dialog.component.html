@@ -1,0 +1,51 @@
+
+<h1
+  mat-dialog-title
+  style="
+    text-align: center;
+    background-color: rgb(231, 210, 16);
+    background-size: auto;font-weight: bold;
+  "
+>
+  Contratar servicio Premium
+</h1>
+<mat-dialog-content style="width: 100%;">
+  <div style="width: 100%;" class="table-responsive">
+<table style="width: 100%;">
+  <th style="text-align: center;width: 100%;"><h3 style="text-align: center;font-weight: bold;">Información sobre el servicio premium de Doors n' Corners</h3></th>
+  <tbody>
+    <tr>
+      <p style="text-align: justify;">
+El servicio premium proporciona acceso a una nueva funcionalidad desde la que el usuario podrá acceder a todos los alumnos registrados en la plataforma móvil. Para seguir con el RGPD se han ocultado los nombres y apellidos
+de todos los alumnos, podrá ver la provincia, el ciclo que cursan y su nota media, además podrá enviar un mensaje directo a la aplicación para que el alumno sepa que su interés en su perfil.
+
+</p>
+<br>
+<p>
+
+  <strong>El servicio tiene un coste de 9,90€</strong> y una duración de 30 días, automáticamente el servicio se renovará  al finalizar el periodo de vigencia el pago en la tarjeta de crédito que usted introduzca en el primero pago.
+  Doors n' Corners no guarda ningún tipo de datos de su tarjeta de crédito.
+
+</p>
+
+<h3 style="font-weight: bold;">Si pulsa el botón de Contratar será redirigido directamente a la plataforma de pago.</h3>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button style="color: red" mat-button mat-dialog-close>Cancelar</button>
+  <button
+  (click)="suscripcionDesdeDialog()"
+    mat-button
+    style="
+      background-color: rgb(231, 210, 16);
+      border-radius: 20;
+      border-color: black;
+    "
+  >
+    Contratar
+  </button>
+</mat-dialog-actions>
