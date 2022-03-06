@@ -1,3 +1,4 @@
+import { Mensaje } from './../_models/mensaje';
 import { Router } from '@angular/router';
 import { Empresa } from './../_models/empresa';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -87,6 +88,17 @@ export class EmpresaService {
     return this.http.post<any>(
       apiURL +
         `/Contrato/Comprobar_Sus_Premium?empresaId=`+empresaId,
+        { headers: headers }
+    );
+  }
+  mensajePremium( mensaje: Mensaje): Observable<Mensaje> {
+    const headers = new HttpHeaders({
+      accept: 'text/plain',
+      'Content-Type': 'application/json',
+    });
+    return this.http.post<Mensaje>(
+      apiURL +
+        `/Mensaje/Crear_Mensaje`,mensaje,
         { headers: headers }
     );
   }

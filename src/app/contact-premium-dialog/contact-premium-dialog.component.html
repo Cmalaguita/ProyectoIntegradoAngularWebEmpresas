@@ -1,0 +1,42 @@
+<h2
+  mat-dialog-title
+  style="
+    text-align: center;
+    background-color: rgb(231, 210, 16);
+    background-size: auto;
+  "
+>
+  Mensaje para el candidato de {{ data.a!.provincia!.nombre }}
+</h2>
+<mat-dialog-content>
+  <div class="table-responsive">
+    <table id="tableModalContactoPremium" class="table">
+      <thead></thead>
+      <tbody>
+        <tr>
+          <td>
+            <textarea
+              [(ngModel)]="msg"
+              style="width: 100%"
+              id="mensajePremium"
+              cols="30"
+              rows="10"
+            ></textarea>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button style="color: red" mat-button mat-dialog-close>Cancelar</button>
+  <button
+  (click)="enviarMensajePremium()"
+    style="color: green"
+    mat-button
+    [mat-dialog-close]="true"
+  >
+    Enviar mensaje
+  </button>
+</mat-dialog-actions>
+

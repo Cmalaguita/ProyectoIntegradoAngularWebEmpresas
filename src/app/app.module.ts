@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
 import {
   HttpClient,
   HttpClientModule,
@@ -61,6 +60,7 @@ import { ProfileDialogComponent } from './profile-dialog/profile-dialog.componen
 import { StudentPremiumListComponent } from './student-premium-list/student-premium-list.component';
 import { MatSlideToggleModule, MatSlideToggle } from '@angular/material/slide-toggle';
 import { PremiumDialogComponent } from './premium-dialog/premium-dialog.component';
+import { ContactPremiumDialogComponent } from './contact-premium-dialog/contact-premium-dialog.component';
 const materialModules = [
   CdkTreeModule,
   MatAutocompleteModule,
@@ -100,11 +100,10 @@ const materialModules = [
   MatDialogModule,
 ];
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
     ProfileComponent,
     NavigationDrawerComponent,
     OffersComponent,
@@ -112,7 +111,8 @@ const materialModules = [
     ContactDialogComponent,
     ProfileDialogComponent,
       StudentPremiumListComponent,
-      PremiumDialogComponent
+      PremiumDialogComponent,
+      ContactPremiumDialogComponent
    ],
   imports: [
     BrowserModule,

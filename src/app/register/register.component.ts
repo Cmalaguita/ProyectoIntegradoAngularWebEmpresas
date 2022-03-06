@@ -94,7 +94,6 @@ export class RegisterComponent implements OnInit {
               window.location.href=response;
 
             });
-
           },
           (error) => {
             this.error = true;
