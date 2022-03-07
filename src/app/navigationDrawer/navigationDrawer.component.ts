@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { PremiumDialogComponent } from './../premium-dialog/premium-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -26,6 +27,11 @@ nopremium:boolean=false;
     }
   },error=>{
     })
+  }
+
+  cerrarSesion(){
+sessionStorage.clear();
+window.location.reload();
   }
 
   openModalPremium() {
