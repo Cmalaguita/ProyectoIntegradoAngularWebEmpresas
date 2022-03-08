@@ -48,3 +48,13 @@
     box-shadow: 3px 3px 4px rgb(155, 141, 15), -2px -2px 5px rgb(87, 79, 5);
     cursor: pointer;
   }
+  .mat-label{
+    color: aliceblue;
+  }
+  .mat-select-arrow {
+    color: aliceblue;
+  }
+
+  .mat-select-value{
+  color: aliceblue;
+  }

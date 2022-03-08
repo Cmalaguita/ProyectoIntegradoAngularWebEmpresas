@@ -31,8 +31,6 @@ this.mensaje={
 }
 
     }
-
-
     enviarMensajePremium() {
 
         this.empresaService.empresaPorId().subscribe((e)=>{
@@ -62,8 +60,6 @@ this.mensaje={
             }
           );
     })
-
-
   }
 
   ngOnInit() {}

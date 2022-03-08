@@ -12,9 +12,11 @@ import { Ciclo } from '../_models/ciclo';
 import { ProvinciaService } from '../_services/provincia.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ViewEncapsulation } from '@angular/core';
 import { Empresa } from '../_models/empresa';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-student-premium-list',
   templateUrl: './student-premium-list.component.html',
   styleUrls: ['./student-premium-list.component.css'],
@@ -193,9 +195,7 @@ export class StudentPremiumListComponent implements OnInit {
     ) {
       this.alumnosBusqueda = this.alumnos;
     }
-    this.alumnosBusqueda.forEach((element) => {
 
-    });
   }
 
   changeselectedTipo(Tipociclo: Tipociclo) {

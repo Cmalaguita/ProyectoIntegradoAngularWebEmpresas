@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProvinciaService } from '../_services/provincia.service';
 import { Provincia } from '../_models/provincia';
+import { ViewEncapsulation } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -13,7 +14,9 @@ import {
   FormControl,
 } from '@angular/forms';
 
+
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],

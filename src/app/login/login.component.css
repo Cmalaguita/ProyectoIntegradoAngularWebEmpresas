@@ -8,7 +8,6 @@
   background: transparent;
 }
 
-
  .custom-form {
 
     max-width: 20%;
@@ -41,7 +40,7 @@
     font-size: 0.875rem;
     color: #ffffff;
     font-weight: bold;
-    background-color: rgb(231,210,16);
+    background-color: #e7d210;
     width: 100%;
     display: block;
     padding: 0.875rem 1rem;

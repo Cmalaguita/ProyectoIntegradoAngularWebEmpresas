@@ -4,10 +4,10 @@
     <tr>
       <td>
         <!-- SELECT FAMILIASPROFESIONALES -->
-        <mat-form-field class="example-full-width">
-          <mat-label>Familia profesional</mat-label>
-          <mat-select (selectionChange)="changeselectedFamilia($event.value)">
-            <mat-option *ngFor="let f of listaFamilias" [value]="f">
+        <mat-form-field style="color: aliceblue;" class="example-full-width">
+          <mat-label style="color: aliceblue;">Familia profesional</mat-label>
+          <mat-select style="color: aliceblue;" (selectionChange)="changeselectedFamilia($event.value)">
+            <mat-option style="color: aliceblue;background-color: black;" *ngFor="let f of listaFamilias" [value]="f">
               {{ f.nombre }}
             </mat-option>
           </mat-select>
@@ -17,9 +17,9 @@
         <!-- SELECT TIPOCICLOS -->
 
         <mat-form-field class="example-full-width">
-          <mat-label>Tipo de ciclo</mat-label>
-          <mat-select (selectionChange)="changeselectedTipo($event.value)">
-            <mat-option *ngFor="let t of listaTipos" [value]="t">
+          <mat-label style="color: aliceblue;margin-left: 20px;">Tipo de ciclo</mat-label>
+          <mat-select style="color: aliceblue;background-color: black;" (selectionChange)="changeselectedTipo($event.value)">
+            <mat-option style="color: aliceblue;background-color: black;" *ngFor="let t of listaTipos" [value]="t">
               {{ t.nombre }}
             </mat-option>
           </mat-select>
@@ -29,22 +29,22 @@
         <!-- SELECT CICLOS -->
 
         <mat-form-field class="example-full-width">
-          <mat-label>Ciclo</mat-label>
-          <mat-select
+          <mat-label style="color: aliceblue;margin-left: 20px;">Ciclo</mat-label>
+          <mat-select style="color: aliceblue;background-color: black;"
             (click)="cargarCiclos()"
             (selectionChange)="changeselectedCiclo($event.value)"
           >
-            <mat-option *ngFor="let c of listaCiclos" [value]="c">
+            <mat-option style="color: aliceblue;background-color: black;" *ngFor="let c of listaCiclos" [value]="c">
               {{ c.nombre }}
             </mat-option>
           </mat-select>
         </mat-form-field>
       </td>
       <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>Provincia</mat-label>
-          <mat-select (selectionChange)="changeselectedProvincia($event.value)">
-            <mat-option *ngFor="let p of listaProv" [value]="p">
+        <mat-form-field style="color: aliceblue;background-color: black;" class="example-full-width">
+          <mat-label style="color: aliceblue;background-color: black;">Provincia</mat-label>
+          <mat-select style="color: aliceblue;background-color: black;" (selectionChange)="changeselectedProvincia($event.value)">
+            <mat-option style="color: aliceblue;background-color: black;" *ngFor="let p of listaProv" [value]="p">
               {{ p.nombre }}
             </mat-option>
           </mat-select>
@@ -58,7 +58,7 @@
         <div class="example-button-row">
           <div class="example-flex-container">
             <button
-              style="background-color: black; color: aliceblue"
+              style="background-color: rgb(231, 210, 16); color: black"
               mat-raised-button
               aria-label="modificar posicion"
               (click)="busquedaDeAlumnos()"

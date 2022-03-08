@@ -22,7 +22,7 @@
     <label style="color: aliceblue" for="provincias"
       >Selecciona una provincia:
     </label>
-    <mat-form-field class="example-full-width">
+    <mat-form-field style="margin-left: 20px;" class="example-full-width">
       <mat-label style="color: aliceblue">Provincia</mat-label>
       <mat-select (selectionChange)="changeselected($event.value)">
         <mat-option *ngFor="let p of listaProv" [value]="p">
