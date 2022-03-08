@@ -35,11 +35,11 @@ export class ProfileComponent implements OnInit {
     this.profileService.getEmpresa(this.id).subscribe(
       (data) => {
         this.empresa = data;
-        console.log(this.empresa);
+
       },
       (error) => {
         this.error = true;
-        console.log(this.empresa);
+
       }
     );
   }

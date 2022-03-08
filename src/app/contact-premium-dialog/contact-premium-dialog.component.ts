@@ -38,13 +38,13 @@ this.mensaje={
         this.empresaService.empresaPorId().subscribe((e)=>{
         this.empresa=e;
         this.startmsg="La empresa "+this.empresa.nombre+" se ha interesado en su perfil y le envia el siguiente mensaje: "
-        console.log(this.empresa)
+
         this.startmsg+=this.msg;
         this.mensaje.contenido=this.startmsg;
         this.mensaje.alumnoId=this.data.a?.id!;
-        console.log("ID ALUMNO " + this.data.a?.id!)
+
         this.mensaje.empresaId=this.empresa.id!;
-        console.log(this.mensaje)
+
         this.empresaService.mensajePremium(this.mensaje).subscribe(
             (_) => {
               this.snackbar.open('Mensaje enviado.', '', {

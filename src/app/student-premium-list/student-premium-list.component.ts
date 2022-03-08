@@ -44,7 +44,7 @@ export class StudentPremiumListComponent implements OnInit {
   ) {}
   busquedaDeAlumnos() {
     this.alumnosBusqueda = [];
-    console.log('ENTRA EN LA BUSQUEDA');
+
     // TODOS LOS CAMPOS TIENEN VALOR
     if (
       this.idTipo != null &&
@@ -82,7 +82,7 @@ export class StudentPremiumListComponent implements OnInit {
       this.provinciaid == 0
     ) {
       this.alumnos.forEach((element) => {
-        console.log(element);
+
         if (element.ciclo?.idFamilia == this.idFamilia) {
           this.alumnosBusqueda.push(element);
         }
@@ -174,8 +174,7 @@ export class StudentPremiumListComponent implements OnInit {
       this.provinciaid > 0
     ) {
       this.alumnos.forEach((element) => {
-        console.log(element);
-        console.log(element.ciclo?.idFamilia);
+
         if (
           element.ciclo?.idFamilia == this.idFamilia &&
           element.ciclo?.idTipo == this.idTipo &&
@@ -195,27 +194,27 @@ export class StudentPremiumListComponent implements OnInit {
       this.alumnosBusqueda = this.alumnos;
     }
     this.alumnosBusqueda.forEach((element) => {
-      console.log('ALUMNOS BUSQUEDA' + element.nombre);
+
     });
   }
 
   changeselectedTipo(Tipociclo: Tipociclo) {
     this.idTipo = Tipociclo.id;
-    console.log('IDTIPOCICLO' + this.idTipo);
+
   }
 
   changeselectedFamilia(Familia: Familia) {
     this.idFamilia = Familia.id;
-    console.log('IDFAMILIA ' + this.idFamilia);
+
   }
   changeselectedCiclo(Ciclo: Ciclo) {
     this.selectedCiclo = Ciclo;
     this.idCiclo = Ciclo.id;
 
-    console.log('CICLO SELECCIONADO:' + this.selectedCiclo.nombre);
+
   }
   changeselectedProvincia(prov: Provincia) {
-    console.log('CONSOLE LOG DE PROV ID EN CHANGESELECTED: ' + prov.id);
+
     this.provinciaid = prov.id;
   }
   cargarCiclos() {
@@ -228,7 +227,7 @@ export class StudentPremiumListComponent implements OnInit {
         .subscribe(
           (data) => {
             this.listaCiclos = data;
-            console.log(data);
+
           },
           (error) => {
             alert(
@@ -251,7 +250,7 @@ export class StudentPremiumListComponent implements OnInit {
     this.cicloService.getAllTipos().subscribe(
       (tipos) => {
         this.listaTipos = tipos;
-        console.log(this.listaTipos);
+
       },
       (error) => {
         alert('No se han podido cargar los tipos de ciclo');
@@ -260,7 +259,7 @@ export class StudentPremiumListComponent implements OnInit {
     this.cicloService.getAllFamilias().subscribe(
       (familias) => {
         this.listaFamilias = familias;
-        console.log(this.listaFamilias);
+
       },
 
       (error) => {
