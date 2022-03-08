@@ -43,7 +43,6 @@ export class ProfileDialogComponent implements OnInit {
   }
 
   changeselected(prov: Provincia) {
-    console.log('CONSOLE LOG DE PROV ID EN CHANGESELECTED: ' + prov.id);
     this.provinciaid = prov.id;
   }
   updateProfile() {
@@ -55,15 +54,15 @@ export class ProfileDialogComponent implements OnInit {
         localidad: this.updateForm.get('localidad')?.value,
         direccion: this.updateForm.get('direccion')?.value,
       };
-      console.log(empresa);
+
       this.empresaService.updateProfile(empresa).subscribe(
         (data) => {
-          console.log(data);
+
           window.location.reload();
         },
         (error) => {
           this.error = true;
-          console.log(empresa);
+
         }
       );
     } else {
@@ -75,7 +74,7 @@ export class ProfileDialogComponent implements OnInit {
     this.provinciaService.getAll().subscribe(
       (data) => {
         this.listaProv = data;
-        console.log(data);
+
       },
       (error) => {
         this.error = true;
