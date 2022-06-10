@@ -1,10 +1,10 @@
 # ProyectoIntegradoAngularWebEmpresas
-
+Proyecto para la asignatura: Hora de Libre Configuración del segundo año de DAM. Este no es el proyecto de fin de grado
 
 ## Sinopsis
 
 * Este proyecto se es parte de un proyecto mayor, compuesto por una api proveedora de servicios, una aplicación flutter para dispositivos móviles y una aplicación web en Angular. Se trata de una aplicación que conecta a las empresas con estudiantes de ciclos formativos de todos los niveles para realizar las prácticas y/o la FP dual en estas.
-* Estado del proyecto: En proceso
+* Estado del proyecto: Finalizado
 
 ## Instalación
 * CMD: para instalar `npm install` para iniciar `npm start` o `ng serve -o` 
